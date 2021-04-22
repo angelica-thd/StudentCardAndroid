@@ -1,0 +1,1039 @@
+<html><html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el"><head id="ctl00_ctl00_Head1"><link rel="stylesheet" type="text/css" href="../../App_Themes/Aqua/Web/styles.css"><link rel="stylesheet" type="text/css" href="/DXR.axd?r=1_7,1_8,1_1,1_3,1_2,1_4-PBvc8"><title>
+
+   </title><meta name="description" content="Ηλεκτρονική Υπηρεσία Απόκτησης Ακαδημαϊκής Ταυτότητας, Academic Identity Card online service"><meta name="keywords" content="Φοιτητής, Ακαδημαϊκή Ταυτότητα, Υπουργείο Παιδείας, Student, Academic Identity Card, Ministry of Education"><meta name="language" content="Modern Greek (1453-)"><meta http-equiv="Content-Language" content="el"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=9"><link href="/_css/academicidReset.css?v=1.0.5.18" rel="stylesheet" type="text/css"><link href="/_css/academicidMain.css?v=1.0.5.18" rel="stylesheet" type="text/css"><link href="/_css/jquery-ui/redmond/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" type="text/css"><link href="/_css/jquery.tagit.css" rel="stylesheet" type="text/css"><link href="/_css/jquery.tipsy.css" rel="stylesheet" type="text/css"><link href="/_js/intlTelInput/intlTelInput.min.css" rel="stylesheet" type="text/css">
+
+
+       <style type="text/css">
+           .cookie-banner {
+               position: fixed;
+               top: 0px;
+               left: 15%;
+               right: 15%;
+               width: 70%;
+               padding: 14px 14px;
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               background-color: #777;
+               border-radius: 5px;
+               box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+               color: antiquewhite;
+               font-size: medium;
+           }
+
+           .close {
+               position: sticky;
+               right: 20px;
+               height: 30px;
+               background-color: #ffffff;
+               border: none;
+               color: rgb(59, 151, 239);
+               border-radius: 2px;
+               cursor: pointer;
+               font-size: medium;
+               font-weight: bold;
+               padding-left: 5px;
+               padding-right: 5px
+           }
+       </style>
+   </head>
+   <body style="">
+       <form method="post" action="./Default.aspx" id="aspnetForm">
+   <div class="aspNetHidden">
+   <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+   <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result: <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3Nzk3NDc3MzQPZBYCZg9kFgJmD2QWAgIBD2QWBgIED2QWBAIBDw8WAh4EVGV4dAU0QU5HRUxJS0k7zpHOk86TzpXOm86ZzprOlyDOmM6Vzp/OlM6pzqHOn86lO1RIRU9ET1JPVWRkAgMPZBYCZg9kFgJmD2QWBgIBDxYCHgdWaXNpYmxlaGQCAw8WAh8BaGQCBQ8PFgIfAAUUzpHPgM6/z4PPjc69zrTOtc+DzrdkZAIFDxYCHwFoZAIHD2QWCAIDD2QWAgIBDxYCHwAF7QE8dWw+PGxpIGNsYXNzPSdmaXJzdExpc3RJdGVtJyBzdHlsZT0nY29sb3I6IEdyZWVuJz48ZW0+zpcgzpHOus6xzrTOt868zrHPis66zq4gzqTOsc+Fz4TPjM+EzrfPhM6xIM+AzrHPgc61zrvOrs+GzrjOtyDOtc+AzrnPhM+Fz4fPjs+CIM+Dz4TOuc+CIDxzcGFuIHN0eWxlPSdmb250LXdlaWdodDogYm9sZDsgZm9udC1zaXplOiAxM3B4OyBjb2xvcjogUmVkOyc+MDYvMTAvMjAxNzwvc3Bhbj48L2VtPjwvbGk+PC91bD5kAgUPZBYCAgEPFgIeC18hSXRlbUNvdW50AgYWDGYPZBYCZg8VAwZhY3RpdmUdL1NlY3VyZS9TdHVkZW50cy9EZWZhdWx0LmFzcHgdzprOtc69z4TPgc65zrrOriDOo861zrvOr860zrFkAgEPZBYCZg8VAwAkL1NlY3VyZS9TdHVkZW50cy9TdHVkZW50RGV0YWlscy5hc3B4H86jz4TOv865z4fOtc6vzrEgzqbOv865z4TOt8+Ezq5kAgIPZBYCZg8VAwAsL1NlY3VyZS9TdHVkZW50cy9BcHBsaWNhdGlvbkdlbmVyYWxJbmZvLmFzcHgnzqDPgc6/zrXPhM6/zrnOvM6xz4POr86xIM6Rzq/PhM63z4POt8+CZAIDD2QWAmYPFQMAKy9TZWN1cmUvU3R1ZGVudHMvQXBwbGljYXRpb25TdWJtaXNzaW9uLmFzcHguzp/Pgc65z4PPhM65zrrOriDOpc+Azr/Oss6/zrvOriDOkc6vz4TOt8+DzrfPgmQCBA9kFgJmDxUDACovU2VjdXJlL1N0dWRlbnRzL0NhbmNlbGVkQXBwbGljYXRpb25zLmFzcHglzpHOus+Fz4HPic68zq3Ovc61z4IgzpHOuc+Ezq7Pg861zrnPgmQCBQ9kFgJmDxUDACUvU2VjdXJlL1N0dWRlbnRzL0hlbHBkZXNrQ29udGFjdC5hc3B4Fs6Vz4DOuc66zr/Ouc69z4nOvc6vzrFkAgsPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgJmD2QWAmYPZBYCAgIPZBYCZg9kFgJmD2QWAmYPZBYCZg9kFgYCAQ88KwAGAQAPFgIfAAUQzpHPgM6/z4PPhM6/zrvOrmRkAgMPPCsABgEADxYCHwAFFM6Rz4DOv864zq7Ous61z4XPg863ZGQCBQ88KwAGAQAPFgIfAAUQzprOu861zq/Pg865zrzOv2RkAg8PZBYCAgEPZBYMAgQPZBYEAgEPDxYCHwFoZGQCAw9kFgJmDzwrAAcBAA8WAh4OXyFVc2VWaWV3U3RhdGVnZGQCBQ9kFgICAw9kFgJmDzwrAAcBAA8WAh8DZ2RkAgYPZBYCZg9kFgJmDzwrAAcBAA8WAh8DZ2RkAgcPZBYCAgEPZBYCZg88KwAHAQAPFgIfA2dkZAIID2QWAmYPZBYCZg8UKwAHDxYCHwNnZGRkZGRkD2QQFgJmAgEWAjwrAAUBABYCHwAFKc6gz4HOv861z4DOuc+DzrrPjM+AzrfPg863IM6Rzq/PhM63z4POt8+CPCsABQEAFgIfAAVGzqDPgc6/zrXPgM65z4POus+Mz4DOt8+DzrcgzpHOus6xzrTOt868zrHPis66zq7PgiDOpM6xz4XPhM+Mz4TOt8+EzrHPgmQWAmYPZBYCZg9kFgICAQ9kFgJmD2QWAmYPZBYEZg9kFgJmD2QWAgIBD2QWGgIBD2QWCGYPFCsABA8WAh4FVmFsdWUFDjI2NjgtODIwOC0zMjAwZDwrAAwBABYEHglGb3JlQ29sb3IKJR4EXyFTQgIEZGRkAgEPFgIfAWcWAgIBD2QWAgIBDzwrAAQBAA8WAh8EBQY0NDY1MjZkZAICDxQrAAQPFgIfBAUQMDMvMTAvMjAxNyAwMDozM2Q8KwAMAQAWBB8FCiUfBgIEZGRkAgMPZBYCAgEPZBYCAgEPDxYCHwAFNjxzcGFuIHN0eWxlPSJjb2xvcjogUmVkIj4xMC8yMDE3IM6tz4nPgiAwOC8yMDIzPC9zcGFuPmRkAgIPZBYCAgEPZBYCAgEPPCsABAEADxYCHwQFBs6fzqfOmWRkAgMPZBYCAgEPZBYCAgEPPCsABAEADxYCHwQFEM6RzpPOk86VzpvOmc6azpdkZAIEDzwrAAQBAA8WAh8EBQhBTkdFTElLSWRkAgUPZBYCAgEPZBYCAgEPPCsABAEADxYCHwQFEM6YzpXOn86UzqnOoc6fzqVkZAIGDzwrAAQBAA8WAh8EBQlUSEVPRE9ST1VkZAIHDzwrAAQBAA8WAh8EBR3Okc6TzpnOkc6jIM6bzpHOpc6hzpHOoyA3Mi03NGRkAggPPCsABAEADxYCHwQFBTExMTQxZGQCCQ88KwAEAQAPFgIfBAUQzpHOmM6Xzp3Okc6ZzqnOnWRkAgoPPCsABAEADxYCHwQFDs6RzqTOpM6ZzprOl86jZGQCCw9kFgJmDw8WAh4ISW1hZ2VVcmwFYWh0dHBzOi8vc3VibWl0LWFjYWRlbWljaWQubWluZWR1Lmdvdi5nci9GaWxlTWFuYWdlci9GaWxlL2Y0MDg3YWFjLTc4ZDMtNDExZi05ZDQ2LTY5NDdkYzI4MWU0OS5heGQWAh4DYWx0BUrOlyDPhs+Jz4TOv86zz4HOsc+Gzq/OsSDPhM63z4IgzpHOus6xzrTOt868zrHPis66zq7PgiDOpM6xz4XPhM+Mz4TOt8+EzrHPgmQCDA9kFgJmD2QWEGYPPCsABAEADxYCHwQFKc6gzpHOnc6VzqDOmc6jzqTOl86czpnOnyDOoM6VzpnOoc6RzpnOqc6jZGQCAQ88KwAEAQAPFgIfBAVPzqTOlc6nzp3On86bzp/Ok86ZzqnOnSDOoM6bzpfOoc6fzqbOn86hzpnOms6XzqMgzprOkc6ZIM6VzqDOmc6azp/Omc6dzqnOnc6ZzqnOnWRkAgIPPCsABAEADxYCHwQFGM6gzpvOl86hzp/Ops6fzqHOmc6azpfOo2RkAgMPPCsABAEADxYCHwQFK86azpHOoc6Rzp/Om86XIM6azpHOmSDOlM6XzpzOl86kzqHOmc6fzqUgODBkZAIEDzwrAAQBAA8WAh8EBQUxODUzNGRkAgUPPCsABAEADxYCHwQFEM6gzpXOmc6hzpHOmc6pzqNkZAIGDzwrAAQBAA8WAh8EBRDOoM6VzpnOoc6RzpnOqc6jZGQCBw9kFgpmDzwrAAQBAA8WAh8EBRjOoM6hzp/OoM6kzqXOp86ZzpHOms6fzqNkZAIBDzwrAAQBAA8WAh8EBQfOoDE3MDMyZGQCAg8WAh8BZxYCAgEPZBYCAgEPFCsABA8WAh8EBQsyNTExOTkwMjg4N2Q8KwAMAQAWBB8FCiUfBgIEZGRkAgQPPCsABAEADxYCHwQFBzA5LzIwMTdkZAIFD2QWAmYPZBYCAgEPZBYEZg88KwAEAQAPFgIfBAUDMc6/ZGQCAQ88KwAEAQAPFgIfBAUGzp/Op86ZZGQCDQ9kFhICAQ88KwAEAQAPFgIfBAUUzqDOkc6kzpfOo86ZzqnOnSAzNDFkZAICDzwrAAQBAA8WAh8EBQUxMTE0NGRkAgMPPCsABAEADxY
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result: </div>
+
+   <script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript">
+   //<![CDATA[
+   var theForm = document.forms['aspnetForm'];
+   if (!theForm) {
+       theForm = document.aspnetForm;
+   }
+   function __doPostBack(eventTarget, eventArgument) {
+       if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+           theForm.__EVENTTARGET.value = eventTarget;
+           theForm.__EVENTARGUMENT.value = eventArgument;
+           theForm.submit();
+       }
+   }
+   //]]>
+   </script>
+
+
+   <script src="/WebResource.axd?d=A-Jh1xupGIamlgQhO6ZlVNIvHhcAvvN65KBhFHhGatdol9dVetk4NAIR6qjeKmhwSfoC1t3vm2m6KdAhGbhwM75bIws1&amp;t=637100482460000000" type="text/javascript"></script>
+
+
+   <script src="/ScriptResource.axd?d=3WqGh9QrBBXurlRxrV4-WZ1x-R5ZMKU5BmVft0TlSyFmmL-ya3h2li9voiWA0qifZfTAwjUO4IE7IRP3Mx8hXX2Du47F7pPiZ260RwBYB7lI_LBLIFjeUkuNDiKZTogI3lRc0Q2&amp;t=45b8f1f6" type="text/javascript"></script>
+   <script src="/ScriptResource.axd?d=kvSXTEuMSX8-JIltJ5cLaNuJOo-mZavW2Jw8bXYTKMMUfNHzlc3PlW20EBPL_hd9nMdk6QMnzly3z_ruoUE1PRjzSH3yGY4a7P3NGxEbAZeh5MjXD_nBthmH5SnlTHML8bNl7A2&amp;t=45b8f1f6" type="text/javascript"></script>
+   <script src="/ScriptResource.axd?d=Vy96EUV4o0x7r-ed0Ev7aDE-63EvlAba4Liuzxc66Q8e_tdfSPiTCe8e00JZ15HqiW_2x9M5AAMGjIx8qqSWoRFQ1zT1DTFNoezIu1wlgS4Dqpuuf88kFUpr2LiCeB_OR0M2ve-LYu2tFfGus0Gx5_uefKM1&amp;t=45b8f1f6" type="text/javascript"></script>
+   <script type="text/javascript">
+   //<![CDATA[
+   Sys.Services._AuthenticationService.DefaultWebServicePath = '../../Authentication_JSON_AppService.axd';
+   Sys.Services.AuthenticationService._setAuthenticated(true);
+   //]]>
+   </script>
+
+   <script src="/_js/new_js/jquery-2.0.3.min.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/jquery-ui-1.10.1.custom.min.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/jquery-tag-it.min.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/jquery.printElement.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/jquery.li-scroller.1.0.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/jquery-barcode.min.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/jquery.qrcode-0.8.0.min.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/js-cookie.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/intlTelInput/utils.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/intlTelInput/intlTelInput.min.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/LanguageHelper.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/Imis.Lib.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/SchoolSearch.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/popUp.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/DxExtensions.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/Terms.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/new_js/DropDownHelper.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/MessageBox.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/CollapsibleBoxes.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="/_js/Views/Students.js?v=1.0.5.18" type="text/javascript"></script>
+   <script src="../../PortalServices/Services.asmx/js" type="text/javascript"></script>
+   <div class="aspNetHidden">
+
+     <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B5D6EC60">
+     <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAfxHylw890zGMF1Ybvtb3UrYo7tRIfu0+i+k2BXHeIa+fLqXNR4Mv6HMfKzdSwIo5c27xzRH7JmtAjs8kRSSk+T/iqwxVmHMOa8SzW53c5EQrEaWUJI1N0t+FDrrINagoiLZdStB+2UNzSK3LP4466brJMrwA6QThShh6Jowbg5puEq4rI=">
+   </div>
+           <input type="submit" name="ctl00$ctl00$preventSubmit" value="" id="ctl00_ctl00_preventSubmit" disabled="disabled" class="aspNetDisabled" style="display: none;">
+           <script type="text/javascript">
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result: //<![CDATA[
+   Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$sm', 'aspnetForm', [], [], [], 90, 'ctl00$ctl00');
+   //]]>
+   </script>
+
+
+           <input type="hidden" name="ctl00$ctl00$hfCurrentLanguage" id="hfCurrentLanguage" value="el">
+
+           <div id="ctl00_ctl00_cookieConsent" class="cookie-banner" style="">
+               <div style="position: relative; align-content: center; text-align: center; left: 5%; right: 5%; width: 90%">
+                   <span style="padding-left: 5px; padding-right: 5px">Τα cookies επιτρέπουν μια προσωποποιημένη εμπειρία χρήσης των λειτουργιών της εφαρμογής της δράσης "Ηλεκτρονική Υπηρεσία Απόκτησης Ακαδημαϊκής Ταυτότητας". Κάνοντας κλικ στο "Εντάξει" ή χρησιμοποιώντας αυτή την ιστοσελίδα, συμφωνείτε με την πολιτική cookies μας.</span>
+                   <span style="cursor: pointer; padding-left: 5px; color: rgb(59, 151, 239);"><a id="learn-more">Μάθε περισσότερα</a>
+                   </span>
+               </div>
+               <button class="close" id="consent">Εντάξει</button>
+           </div>
+           <div id="body-container">
+               <div id="header">
+                   <div id="header-logo">
+                       <a href="http://minedu.gov.gr/" target="_blank">
+                           <img src="/_img/logos/minedu3.jpg" alt="Υπουργείο Παιδείας και Θρησκευμάτων"></a>
+                   </div>
+                   <div id="header-literal">
+                       <h1>Ηλεκτρονική Υπηρεσία Απόκτησης Ακαδημαϊκής Ταυτότητας</h1>
+                   </div>
+
+       <div id="login-area">
+           <div id="name">
+               <span id="ctl00_ctl00_cphLoginArea_lblStudentName">ANGELIKI;ΑΓΓΕΛΙΚΗ ΘΕΟΔΩΡΟΥ;THEODOROU</span>
+           </div>
+           <div id="username">
+
+
+
+           <a id="ctl00_ctl00_cphLoginArea_loginBar_loginView_btnLogout" class="icon-btn bg-logout" href="javascript:__doPostBack('ctl00$ctl00$cphLoginArea$loginBar$loginView$btnLogout','')">Αποσύνδεση</a>
+
+                   <a id="ctl00_ctl00_cphLoginArea_loginBar_loginView_btnEnglish" class="icon-btn bg-english" href="javascript:__doPostBack('ctl00$ctl00$cphLoginArea$loginBar$loginView$btnEnglish','')">English</a>
+
+
+
+           </div>
+       </div>
+
+               </div>
+
+
+               <noscript>
+                   <div class="globalMessage">
+                       <span>ΠΡΟΣΟΧΗ: Θα πρέπει να ενεργοποιήσετε τη Javascript για τη σωστή λειτουργία της εφαρμογής</span>
+                   </div>
+               </noscript>
+
+
+
+               <div id="container">
+
+
+       <div id="alertsArea" class="reminder">
+           <ul><li class="firstListItem" style="color: Green"><em>Η Ακαδημαϊκή Ταυτότητα παρελήφθη επιτυχώς στις <span style="font-weight: bold; font-size: 13px; color: Red;">06/10/2017</span></em></li></ul>
+       </div>
+       <div id="registeredUsersMenu">
+
+                   <a class="active" href="/Secure/Students/Default.aspx">Κεντρική Σελίδα</a>
+
+                   <a class="" href="/Secure/Students/StudentDetails.aspx">Στοιχεία Φοιτητή</a>
+
+                   <a class="" href="/Secure/Students/ApplicationGeneralInfo.aspx">Προετοιμασία Αίτησης</a>
+
+                   <a class="" href="/Secure/Students/ApplicationSubmission.aspx">Οριστική Υποβολή Αίτησης</a>
+
+                   <a class="" href="/Secure/Students/CanceledApplications.aspx">Ακυρωμένες Αιτήσεις</a>
+
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result:                 <a class="" href="/Secure/Students/HelpdeskContact.aspx">Επικοινωνία</a>
+
+       </div>
+       <div id="form-container">
+
+
+
+           <input type="hidden" id="ctl00_ctl00_cphMain_ctl01WS" name="ctl00_ctl00_cphMain_ctl01WS" value="0:0:-1:-10000:-10000:0:920px:620px:1:0:0:0"><script id="dxis_2002478090" src="/DXR.axd?r=1_142,1_80,1_135,1_77,1_120,1_128,1_126,1_91,1_136,1_133-PBvc8" type="text/javascript"></script><div id="ctl00_ctl00_cphMain_ctl01_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+     <table id="ctl00_ctl00_cphMain_ctl01_PWST-1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+       <tbody><tr>
+         <td class="dxpcControl" ontouchstart="aspxPWMDown(event,'ctl00_ctl00_cphMain_ctl01',-1,false)" onmousemove="aspxPWMMove(event,'ctl00_ctl00_cphMain_ctl01',-1)" style="height:620px;width:920px;cursor:default;min-width:0.00001%;"><table id="ctl00_ctl00_cphMain_ctl01_CLW-1" cellspacing="0" cellpadding="0" style="height:620px;width:920px;border-collapse:collapse;border-collapse:separate;">
+           <tbody><tr>
+             <td id="ctl00_ctl00_cphMain_ctl01_PWH-1" class="dxpcHeader" ontouchstart="aspxPWDGMDown(event,'ctl00_ctl00_cphMain_ctl01',-1)" style="cursor:move;padding-left:12px;padding-right:2px;padding-top:2px;padding-bottom:2px;-khtml-user-select:none;"><table cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+               <tbody><tr>
+                 <td id="ctl00_ctl00_cphMain_ctl01_PWH-1T" class="dxpc" style="width:100%;">Header</td><td class="dxpcHBCell dxpcHBCellSys"><table cellspacing="0" cellpadding="0" style="border-collapse:collapse;border-collapse:separate;">
+                   <tbody><tr>
+                     <td id="ctl00_ctl00_cphMain_ctl01_HCB-1" class="dxpcCloseButton" ontouchstart="aspxPWCBClick(event, 'ctl00_ctl00_cphMain_ctl01',-1)" style="cursor:pointer;"><img id="ctl00_ctl00_cphMain_ctl01_HCB-1Img" class="dxWeb_pcCloseButton" src="/DXR.axd?r=1_9-PBvc8" alt="[Close]"></td>
+                   </tr>
+                 </tbody></table></td>
+               </tr>
+             </tbody></table></td>
+           </tr><tr>
+             <td id="ctl00_ctl00_cphMain_ctl01_PWC-1" class="dxpcContent" style="height:100%;border-top-width:0px;border-bottom-width:0px;"><div id="ctl00_ctl00_cphMain_ctl01_CSD-1" class="dxpcContentPaddings">
+               &nbsp;&nbsp;
+             </div></td>
+           </tr><tr>
+             <td id="ctl00_ctl00_cphMain_ctl01_PWF-1" class="dxpcFooter">
+                   <div style="padding: 8px 12px;">
+                       <table style="float: right;">
+                           <tbody><tr>
+                               <td>
+                                   <table cellspacing="0" cellpadding="0" id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00" style="border-collapse:collapse;border-collapse:separate;-khtml-user-select:none;">
+               <tbody><tr>
+                 <td id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00_B" class="dxbButton" align="center"><div style="border-width:0;width:0;height:0;opacity:0;padding:0;margin:0;overflow:hidden;">
+                   <input value="" onfocus="aspxBGotFocus('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00')" type="submit" name="ctl00$ctl00$cphMain$ctl01$TPCFm1$ctl00" readonly="readonly" style="border-width:0px;height:0px;width:0px;padding:0;border-width:0;width:1px;height:1px;opacity:0;margin:0;position:relative;">
+                 </div><div id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00_CD" class="dxb">
+                   <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;border-collapse:separate;">
+                     <tbody><tr>
+                       <td style="padding-right:4px;"><img id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00_BImg" src="../../_img/iconEmailSend.png" alt=""></td><td id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00_BTC" class="dxb"><span>Αποστολή</span></td>
+                     </tr>
+                   </tbody></table>
+                 </div></td>
+               </tr>
+             </tbody></table><script id="dxss_54017531" type="text/javascript">
+   <!--
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result: aspxAddPressedItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00',[[['dxbButtonPressed'],[''],['B'],['','TC'],[['']],['Img']]]);
+   aspxAddDisabledItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00',[[['dxbDisabled'],[''],['B'],['','TC'],[['']],['Img']]]);
+
+   var dxo = new ASPxClientButton('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00');
+   window['btnSendOnlineReport'] = dxo;
+   dxo.enableSlideCallbackAnimation = true;
+   dxo.enableSwipeGestures = true;
+   dxo.uniqueID = 'ctl00$ctl00$cphMain$ctl01$TPCFm1$ctl00';
+   dxo.Click.AddHandler(function() { devExPopup.GetContentIFrameWindow().doSendOnlineReport(); });
+   aspxAddSelectedItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl00',[[['dxbf'],[''],['CD']]]);
+   dxo.InlineInitialize();
+
+   //-->
+   </script>
+                               </td>
+                               <td>
+                                   <table cellspacing="0" cellpadding="0" id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01" style="border-collapse:collapse;border-collapse:separate;-khtml-user-select:none;">
+               <tbody><tr>
+                 <td id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01_B" class="dxbButton" align="center"><div style="border-width:0;width:0;height:0;opacity:0;padding:0;margin:0;overflow:hidden;">
+                   <input value="" onfocus="aspxBGotFocus('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01')" type="submit" name="ctl00$ctl00$cphMain$ctl01$TPCFm1$ctl01" readonly="readonly" style="border-width:0px;height:0px;width:0px;padding:0;border-width:0;width:1px;height:1px;opacity:0;margin:0;position:relative;">
+                 </div><div id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01_CD" class="dxb">
+                   <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;border-collapse:separate;">
+                     <tbody><tr>
+                       <td style="padding-right:4px;"><img id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01_BImg" src="../../_img/iconSave.png" alt=""></td><td id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01_BTC" class="dxb"><span>Αποθήκευση</span></td>
+                     </tr>
+                   </tbody></table>
+                 </div></td>
+               </tr>
+             </tbody></table><script id="dxss_1292309146" type="text/javascript">
+   <!--
+   aspxAddPressedItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01',[[['dxbButtonPressed'],[''],['B'],['','TC'],[['']],['Img']]]);
+   aspxAddDisabledItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01',[[['dxbDisabled'],[''],['B'],['','TC'],[['']],['Img']]]);
+
+   var dxo = new ASPxClientButton('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01');
+   window['btnSubmit'] = dxo;
+   dxo.enableSlideCallbackAnimation = true;
+   dxo.enableSwipeGestures = true;
+   dxo.uniqueID = 'ctl00$ctl00$cphMain$ctl01$TPCFm1$ctl01';
+   dxo.Click.AddHandler(function() { devExPopup.GetContentIFrameWindow().doSubmit(); });
+   aspxAddSelectedItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl01',[[['dxbf'],[''],['CD']]]);
+   dxo.InlineInitialize();
+
+   //-->
+   </script>
+                               </td>
+                               <td>
+                                   <table cellspacing="0" cellpadding="0" id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02" style="border-collapse:collapse;border-collapse:separate;-khtml-user-select:none;">
+               <tbody><tr>
+                 <td id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02_B" class="dxbButton" align="center"><div style="border-width:0;width:0;height:0;opacity:0;padding:0;margin:0;overflow:hidden;">
+                   <input value="" onfocus="aspxBGotFocus('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02')" type="submit" name="ctl00$ctl00$cphMain$ctl01$TPCFm1$ctl02" readonly="readonly" style="border-width:0px;height:0px;width:0px;padding:0;border-width:0;width:1px;height:1px;opacity:0;margin:0;position:relative;">
+                 </div><div id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02_CD" class="dxb">
+                   <table cellspacing="0" cellpadding="0" style="border-collapse:collapse;border-collapse:separate;">
+                     <tbody><tr>
+                       <td style="padding-right:4px;"><img id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02_BImg" src="../../_img/iconCancel.png" alt=""></td><td id="ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02_BTC" class="dxb"><span>Κλείσιμο</span></td>
+                     </tr>
+                   </tbody></table>
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result: 							</div></td>
+               </tr>
+             </tbody></table><script id="dxss_1914466783" type="text/javascript">
+   <!--
+   aspxAddPressedItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02',[[['dxbButtonPressed'],[''],['B'],['','TC'],[['']],['Img']]]);
+   aspxAddDisabledItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02',[[['dxbDisabled'],[''],['B'],['','TC'],[['']],['Img']]]);
+
+   var dxo = new ASPxClientButton('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02');
+   window['btnCancel'] = dxo;
+   dxo.enableSlideCallbackAnimation = true;
+   dxo.enableSwipeGestures = true;
+   dxo.uniqueID = 'ctl00$ctl00$cphMain$ctl01$TPCFm1$ctl02';
+   dxo.Click.AddHandler(function() { popUp.hideWithoutRefresh(); });
+   aspxAddSelectedItems('ctl00_ctl00_cphMain_ctl01_TPCFm1_ctl02',[[['dxbf'],[''],['CD']]]);
+   dxo.InlineInitialize();
+
+   //-->
+   </script>
+                               </td>
+                           </tr>
+                       </tbody></table>
+                       <div style="clear: both;"></div>
+                   </div>
+               </td>
+           </tr>
+         </tbody></table></td><td style="background:url('/DXR.axd?r=1_62-PBvc8') no-repeat left top;"></td>
+       </tr><tr>
+         <td style="background:url('/DXR.axd?r=1_61-PBvc8') no-repeat left top;"></td><td style="background:url('/DXR.axd?r=1_63-PBvc8') no-repeat left top;"><div style="height:5px;width:5px;">
+
+         </div></td>
+       </tr>
+     </tbody></table>
+   </div><div id="ctl00_ctl00_cphMain_ctl01_DXPWMB-1" class="dxpcModalBackground" style="position:absolute;visibility:hidden;left:0px;top:0px;z-index:9999;">
+
+   </div><table id="ctl00_ctl00_cphMain_ctl01_LP" class="dxpcLoadingPanel" cellspacing="0" cellpadding="0" style="border-collapse:collapse;left:0px;top:0px;z-index:30000;display:none;">
+     <tbody><tr>
+       <td class="dx" style="padding-right:8px;"><img src="/DXR.axd?r=1_48-PBvc8" alt="" align="middle"></td><td class="dx" style="padding-left:0px;"><span id="ctl00_ctl00_cphMain_ctl01_TL">Loading…</span></td>
+     </tr>
+   </tbody></table><div id="ctl00_ctl00_cphMain_ctl01_LD" class="dxpcLoadingDiv" style="left:0px;top:0px;z-index:29999;display:none;position:absolute;">
+
+   </div><script id="dxss_862431684" type="text/javascript">
+   <!--
+
+   var dxo = new ASPxClientPopupControl('ctl00_ctl00_cphMain_ctl01');
+   window['devExPopup'] = dxo;
+   dxo.callBack = function(arg) { WebForm_DoCallback('ctl00$ctl00$cphMain$ctl01',arg,aspxCallback,'ctl00_ctl00_cphMain_ctl01',aspxCallbackError,true); };
+   dxo.enableSlideCallbackAnimation = true;
+   dxo.enableSwipeGestures = true;
+   dxo.uniqueID = 'ctl00$ctl00$cphMain$ctl01';
+   dxo.popupAnimationType='fade';
+   dxo.allowResize=true;
+   dxo.closeAction='CloseButton';
+   dxo.popupHorizontalAlign='WindowCenter';
+   dxo.popupVerticalAlign='WindowCenter';
+   dxo.isPopupPositionCorrectionOn=false;
+   dxo.allowDragging=true;
+   dxo.width=920;
+   dxo.height=620;
+   aspxAddSelectedItems('ctl00_ctl00_cphMain_ctl01',[[['dxpcPinButtonChecked'],[''],['HPB-1'],,[['']],['Img']],[['dxpcCollapseButtonChecked'],[''],['HMNB-1'],,[['']],['Img']],[['dxpcMaximizeButtonChecked'],[''],['HMXB-1'],,[['']],['Img']]]);
+   dxo.InlineInitialize();
+
+   //-->
+   </script>
+
+
+
+           <div style="clear: both;"></div>
+           <fieldset class="form">
+
+
+               <b>Μπορείτε, εάν θέλετε, να λαμβάνετε ειδοποιήσεις για τις <a href="http://diavlos.grnet.gr/subscribe" target="_blank" style="text-decoration: underline; color: Blue">ζωντανές μεταδόσεις
+                   επιστημονικών και πολιτιστικών εκδηλώσεων</a> που διενεργεί το Εθνικό Δίκτυο Υποδομών Τεχνολογίας και Έρευνας (ΕΔΥΤΕ) πατώντας στο σχετικό υπερσύνδεσμο.</b><br>
+                   <br>
+                   Παρακάτω εμφανίζονται τα στοιχεία της αίτησης που υποβάλατε.
+                   <br>
+                   <br>
+               <br>
+               <br>
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result:             <input type="hidden" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreviewATI" name="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreviewATI" value="0"><table class="dxtcControl_Aqua" cellspacing="0" cellpadding="0" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+     <tbody><tr>
+       <td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_TC" class="dxtcTabsCell" style="padding-left:0px;padding-right:0px;padding-top:2px;padding-bottom:0px;"><table cellspacing="0" cellpadding="0" style="height:100%;width:100%;border-collapse:collapse;border-collapse:separate;">
+         <tbody><tr>
+           <td class="dxtcLeftIndentCell_Aqua" style="width:5px;border-bottom-color:#AECAF0;border-bottom-style:Solid;border-bottom-width:1px;"><div style="height:1px;width:5px;overflow:hidden;">
+
+           </div></td><td style="vertical-align:bottom;"><table class="dxtcActiveRow_Aqua" cellspacing="0" cellpadding="0" style="width:100%;border-collapse:collapse;border-collapse:separate;">
+             <tbody><tr>
+               <td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_T0" class="dxtcTab_Aqua" onclick="return aspxTCTClick(event, 'ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview', 0)" style="height:0px;border-bottom-color:#AECAF0;border-bottom-style:Solid;border-bottom-width:1px;cursor:pointer;display:none;"><table cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                 <tbody><tr>
+                   <td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_T0T" class="dxtc" style="width:100%;">Προεπισκόπηση Αίτησης</td>
+                 </tr>
+               </tbody></table></td><td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_AT0" class="dxtcActiveTab_Aqua" style="height:0px;cursor:default;border-bottom-width:0px!important;"><table cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin-bottom:1px;">
+                 <tbody><tr>
+                   <td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_AT0T" class="dxtc" style="width:100%;">Προεπισκόπηση Αίτησης</td>
+                 </tr>
+               </tbody></table></td><td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_T0S" style="width:3px;border-bottom-color:#AECAF0;border-bottom-style:Solid;border-bottom-width:1px;"><div style="height:1px;width:3px;overflow:hidden;">
+
+               </div></td><td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_T1" class="dxtcTab_Aqua" onclick="return aspxTCTClick(event, 'ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview', 1)" style="height:0px;border-bottom-color:#AECAF0;border-bottom-style:Solid;border-bottom-width:1px;cursor:pointer;"><table cellspacing="0" cellpadding="0" style="border-collapse:collapse;">
+                 <tbody><tr>
+                   <td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_T1T" class="dxtc" style="width:100%;">Προεπισκόπηση Ακαδημαϊκής Ταυτότητας</td>
+                 </tr>
+               </tbody></table></td><td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_AT1" class="dxtcActiveTab_Aqua" style="height:0px;cursor:default;border-bottom-width:0px!important;display:none;"><table cellspacing="0" cellpadding="0" style="border-collapse:collapse;margin-bottom:1px;">
+                 <tbody><tr>
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result: 								<td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_AT1T" class="dxtc" style="width:100%;">Προεπισκόπηση Ακαδημαϊκής Ταυτότητας</td>
+                 </tr>
+               </tbody></table></td>
+             </tr>
+           </tbody></table></td><td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_RAC" class="dxtcRightAlignCell_Aqua" style="width:100%;border-bottom-color:#AECAF0;border-bottom-style:Solid;border-bottom-width:1px;"><div style="height:1px;width:1px;overflow:hidden;">
+
+           </div></td><td class="dxtcRightIndentCell_Aqua" style="width:5px;border-bottom-color:#AECAF0;border-bottom-style:Solid;border-bottom-width:1px;"><div style="height:1px;width:5px;overflow:hidden;">
+
+           </div></td>
+         </tr>
+       </tbody></table></td>
+     </tr><tr>
+       <td id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_CC" class="dxtcPageContent_Aqua" style="border-color:#AECAF0;border-width:1px;border-style:Solid;width:100%;vertical-align:Top;border-top-width:0px;padding-left:11px;padding-right:11px;padding-top:11px;padding-bottom:11px;"><div id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_C0">
+
+
+
+   <table style="width: 100%">
+       <tbody><tr>
+           <td style="vertical-align: top; width: 50%">
+
+                   <table class="dv" style="width: 100%">
+                       <colgroup>
+                           <col style="width: 160px">
+                       </colgroup>
+                       <tbody><tr>
+                           <th colspan="2" class="header">» Στοιχεία Υποβολής
+                           </th>
+                       </tr>
+                       <tr>
+                           <th>Κωδικός Υποβολής:
+                           </th>
+                           <td>
+                               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblSubmissionCode" style="color:Blue;font-weight:bold;">2668-8208-3200</span>
+                           </td>
+                       </tr>
+                       <tr id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_trPinNumber">
+           <th>Αριθμός PIN:
+                           </th>
+           <td>
+                               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblPinNumber" style="color:Blue;font-weight:bold;">446526</span>
+                           </td>
+         </tr>
+
+                       <tr>
+                           <th>Ημ/νία Υποβολής:
+                           </th>
+                           <td>
+                               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblSubmissionDate" style="color:Blue;font-weight:bold;">03/10/2017 00:33</span>
+                           </td>
+                       </tr>
+                       <tr id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_trPaso">
+           <th>Δελτίο Ειδικού Εισιτηρίου:
+                           </th>
+           <td>
+                               <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblValidityPeriod" style="color:Blue;font-weight:bold;"><span style="color: Red">10/2017 έως 08/2023</span></span>
+                           </td>
+         </tr>
+
+                   </tbody></table>
+                   <br>
+
+
+               <table class="dv" style="width: 100%">
+                   <colgroup>
+                       <col style="width: 160px">
+                   </colgroup>
+                   <tbody><tr>
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result:                     <th colspan="2" class="header">» Στοιχεία Δικαιούχου
+                       </th>
+                   </tr>
+                   <tr id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_trOtherDegree">
+           <th>Κάτοχος άλλου τίτλου σπουδών:
+                       </th>
+           <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblOtherDegree" style="color:Blue;font-weight:bold;">ΟΧΙ</span>
+                       </td>
+         </tr>
+
+                   <tr id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_trGreekFirstName">
+           <th>Όνομα (Ελληνικά):
+                       </th>
+           <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekFirstName" style="color:Blue;font-weight:bold;">ΑΓΓΕΛΙΚΗ</span>
+                       </td>
+         </tr>
+
+                   <tr>
+                       <th>Όνομα (Λατινικά):
+                       </th>
+                       <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblLatinFirstName" style="color:Blue;font-weight:bold;">ANGELIKI</span>
+                       </td>
+                   </tr>
+                   <tr id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_trGreekLastName">
+           <th>Επώνυμο (Ελληνικά):
+                       </th>
+           <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekLastName" style="color:Blue;font-weight:bold;">ΘΕΟΔΩΡΟΥ</span>
+                       </td>
+         </tr>
+
+                   <tr>
+                       <th>Επώνυμο (Λατινικά):
+                       </th>
+                       <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblLatinLastName" style="color:Blue;font-weight:bold;">THEODOROU</span>
+                       </td>
+                   </tr>
+               </tbody></table>
+
+               <div class="br"></div>
+
+               <table class="dv" style="width: 100%">
+                   <colgroup>
+                       <col style="width: 160px">
+                   </colgroup>
+                   <tbody><tr>
+                       <th colspan="2" class="header">» Στοιχεία Διεύθυνσης Μόνιμης Κατοικίας
+                       </th>
+                   </tr>
+                   <tr>
+                       <th>Διεύθυνση:
+                       </th>
+                       <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblAddress" style="color:Blue;font-weight:bold;">ΑΓΙΑΣ ΛΑΥΡΑΣ 72-74</span>
+                       </td>
+                   </tr>
+                   <tr>
+                       <th>Τ.Κ.:
+                       </th>
+                       <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblZipCode" style="color:Blue;font-weight:bold;">11141</span>
+                       </td>
+                   </tr>
+                   <tr>
+                       <th>Καλλικρατικός Δήμος:
+                       </th>
+                       <td>
+2021-04-16 12:53:28.847 5734-5847/com.example.qrcodetry1 I/result:                         <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblCity" style="color:Blue;font-weight:bold;">ΑΘΗΝΑΙΩΝ</span>
+                       </td>
+                   </tr>
+                   <tr>
+                       <th>Περιφερειακή Ενότητα:
+                       </th>
+                       <td>
+                           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblPrefecture" style="color:Blue;font-weight:bold;">ΑΤΤΙΚΗΣ</span>
+                       </td>
+                   </tr>
+               </tbody></table>
+
+               <div class="br"></div>
+
+
+                   <table class="dv" style="width: 100%">
+                       <colgroup>
+                           <col style="width: 160px">
+                       </colgroup>
+                       <tbody><tr>
+                           <th colspan="2" class="header">» Στοιχεία Φωτογραφίας
+                           </th>
+                       </tr>
+                       <tr>
+                           <th>Φωτογραφία:
+                           </th>
+                           <td>
+                               <img id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto" alt="Η φωτογραφία της Ακαδημαϊκής Ταυτότητας" src="https://submit-academicid.minedu.gov.gr/FileManager/File/f4087aac-78d3-411f-9d46-6947dc281e49.axd">
+                           </td>
+                       </tr>
+                   </tbody></table>
+
+           </td>
+           <td style="vertical-align: top; width: 50%">
+
+
+
+                       <table class="dv" style="width: 100%">
+                           <colgroup>
+                               <col style="width: 160px">
+                           </colgroup>
+                           <tbody><tr>
+                               <th colspan="2" class="header">» Στοιχεία Σχολής/Τμήματος
+                               </th>
+                           </tr>
+                           <tr>
+                               <th>Ίδρυμα:
+                               </th>
+                               <td>
+                                   <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentInstitution" style="color:Blue;font-weight:bold;">ΠΑΝΕΠΙΣΤΗΜΙΟ ΠΕΙΡΑΙΩΣ</span>
+                               </td>
+                           </tr>
+                           <tr>
+                               <th>Σχολή:
+                               </th>
+                               <td>
+                                   <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentSchool" style="color:Blue;font-weight:bold;">ΤΕΧΝΟΛΟΓΙΩΝ ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΕΠΙΚΟΙΝΩΝΙΩΝ</span>
+                               </td>
+                           </tr>
+                           <tr>
+                               <th>Τμήμα:
+                               </th>
+                               <td>
+                                   <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentDepartment" style="color:Blue;font-weight:bold;">ΠΛΗΡΟΦΟΡΙΚΗΣ</span>
+                               </td>
+                           </tr>
+                           <tr>
+                               <th>Διεύθυνση:
+                               </th>
+                               <td>
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result:                                 <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicAddress" style="color:Blue;font-weight:bold;">ΚΑΡΑΟΛΗ ΚΑΙ ΔΗΜΗΤΡΙΟΥ 80</span>
+                               </td>
+                           </tr>
+                           <tr>
+                               <th>Τ.Κ.:
+                               </th>
+                               <td>
+                                   <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicZipCode" style="color:Blue;font-weight:bold;">18534</span>
+                               </td>
+                           </tr>
+                           <tr>
+                               <th>Περιφερειακή Ενότητα:
+                               </th>
+                               <td>
+                                   <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicPrefecture" style="color:Blue;font-weight:bold;">ΠΕΙΡΑΙΩΣ</span>
+                               </td>
+                           </tr>
+                           <tr>
+                               <th>Καλλικρατικός Δήμος:
+                               </th>
+                               <td>
+                                   <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicCity" style="color:Blue;font-weight:bold;">ΠΕΙΡΑΙΩΣ</span>
+                               </td>
+                           </tr>
+                       </tbody></table>
+
+                       <div class="br"></div>
+
+
+
+   <table class="dv" style="width: 100%">
+       <colgroup>
+           <col style="width: 160px">
+       </colgroup>
+       <tbody><tr>
+           <th colspan="2" class="header">» Ειδικά Στοιχεία Φοιτητή
+           </th>
+       </tr>
+       <tr>
+           <th>Ακ. Ιδιότητα:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblStudentshipType" style="color:Blue;font-weight:bold;">ΠΡΟΠΤΥΧΙΑΚΟΣ</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Αριθμός Μητρώου:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblStudentNumber" style="color:Blue;font-weight:bold;">Π17032</span>
+           </td>
+       </tr>
+       <tr id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_trAMKA">
+           <th>ΑΜΚΑ:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblAMKA" style="color:Blue;font-weight:bold;">25119902887</span>
+           </td>
+         </tr>
+
+
+       <tr>
+           <th>Ημ/νία πρώτης εγγραφής (εισαγωγής):
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblEntryDate" style="color:Blue;font-weight:bold;">09/2017</span>
+           </td>
+       </tr>
+
+
+
+   <tr>
+       <th>Τρέχον εξάμηνο:
+       </th>
+       <td>
+           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_ucUnderGraduateAcademicInfoView_lblCurrentSemester" style="color:Blue;font-weight:bold;">1ο</span>
+       </td>
+   </tr>
+   <tr>
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result:     <th>Φοιτητής Erasmus:
+       </th>
+       <td>
+           <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_ucUnderGraduateAcademicInfoView_lblErasmus" style="color:Blue;font-weight:bold;">ΟΧΙ</span>
+       </td>
+   </tr>
+
+
+
+   </tbody></table>
+
+
+
+               <div class="br"></div>
+
+
+
+   <table class="dv" style="width: 100%">
+       <colgroup>
+           <col style="width: 90px">
+       </colgroup>
+       <tbody><tr>
+           <th colspan="2" class="header">» Στοιχεία Σημείου Διανομής
+           </th>
+       </tr>
+
+       <tr>
+           <th>Διεύθυνση:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblAddress" style="color:Blue;font-weight:bold;">ΠΑΤΗΣΙΩΝ 341</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Τ.Κ.:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblZipCode" style="color:Blue;font-weight:bold;">11144</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Καλλικρατικός Δήμος:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblCity" style="color:Blue;font-weight:bold;">ΑΘΗΝΑΙΩΝ</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Περιφερειακή Ενότητα:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblPrefecture" style="color:Blue;font-weight:bold;">ΑΤΤΙΚΗΣ</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Υπεύθυνος:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblContactName" style="color:Blue;font-weight:bold;">ΓΙΑΒΑΣΗ ΕΦΗ</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Τηλέφωνο:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblPhone" style="color:Blue;font-weight:bold;">2102110709</span>
+           </td>
+       </tr>
+       <tr>
+           <th>E-mail:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblEmail" style="color:Blue;font-weight:bold;">vf336@vodafone.net.gr</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Ωράριο Λειτουργίας:
+           </th>
+           <td>
+               <span class="dxeBase" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblOpeningHours" style="color:Blue;font-weight:bold;">ΔΕΥΤΕΡΑ, ΤΕΤΑΡΤΗ, ΣΑΒΒΑΤΟ: 09:00-15:00 / ΤΡΙΤΗ, ΠΕΜΠΤΗ, ΠΑΡΑΣΚΕΥΗ: 09:00-14:30 17:30-21:00</span>
+           </td>
+       </tr>
+       <tr>
+           <th>Χάρτης:
+           </th>
+           <td>
+               <a class="dxeHyperlink" id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucDistributionPointView_lblExternalMapUrl" href="https://www.google.com/maps/place/38.021,23.735833" target="_blank" style="color:Blue;">Προβολή σημείου στο χάρτη</a>
+           </td>
+       </tr>
+   </tbody></table>
+
+
+
+           </td>
+       </tr>
+   </tbody></table>
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result:
+       </div><div id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_C1" style="display:none;">
+
+
+
+
+   <div style="width: 520px; height: 356px; background-color: #FFFFFF; border: 1px solid #000000;">
+       <div style="height: 130px;">
+           <div style="width: 358px; float: left">
+               <img id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_imgInstitutionLogo" src="../../_img/InstitutionLogos/25.jpg?v=12.2.16.0" alt="Λογότυπο Ιδρύματος" style="height:100px;padding: 10px;">
+           </div>
+           <div style="width: 133px; float: left">
+               <img id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_imgPhoto" alt="Η φωτογραφία της Ακαδημαϊκής Ταυτότητας" src="https://submit-academicid.minedu.gov.gr/FileManager/File/f4087aac-78d3-411f-9d46-6947dc281e49.axd" style="width:133px;">
+           </div>
+           <div style="clear: both">
+           </div>
+       </div>
+       <br>
+       <div id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_divStudentshipType" style="background-color: #94C953; height: 75px;">
+           <div style="text-align: center; font-weight: bold; font-size: 14px; color: White">
+               ΑΚΑΔΗΜΑΪΚΗ ΤΑΥΤΟΤΗΤΑ / ACADEMIC ID
+           </div>
+           <br>
+           <div style="font-weight: bold">
+               <div style="float: left; margin-left: 40px">
+                   <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblSubmissionCode" style="color:Black;">266882083200</span>
+               </div>
+               <div style="float: left; margin-left: 65px">
+                   <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblAcademicProgram" style="color:Black;"></span>
+               </div>
+               <div style="float: right; margin-right: 30px">
+                   <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblPaso" style="color:Black;font-weight:bold;">ΔΕΛΤΙΟ ΕΙΣΙΤΗΡΙΟΥ</span>
+                   <br>
+                   <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblValidityPeriod" style="font-weight:bold;">10/2017 έως 08/2023</span>
+               </div>
+               <div style="clear: both">
+               </div>
+           </div>
+       </div>
+       <div style="margin-left: 30px">
+           <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblGreekName" style="color:Black;font-size:15px;font-weight:bold;">ΑΓΓΕΛΙΚΗ ΘΕΟΔΩΡΟΥ</span>
+       </div>
+       <div style="margin-left: 30px">
+           <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblLatinName" style="color:Black;font-size:15px;font-weight:bold;">ANGELIKI THEODOROU</span>
+       </div>
+       <div id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_divStudentshipType2" style="background-color: #94C953; height: 40px;">
+           <div style="text-align: center; margin-top: 10px">
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result:             <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblStudentshipType" style="color:Black;font-size:14px;font-weight:bold;">ΠΡΟΠΤΥΧΙΑΚΟΣ ΦΟΙΤΗΤΗΣ / UNDERGRADUATE STUDENT</span>
+           </div>
+       </div>
+       <div style="text-align: center; height: 45px">
+           <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblDepartmentLine1" style="color:Black;font-size:13px;font-weight:bold;">ΠΛΗΡΟΦΟΡΙΚΗΣ</span>
+           <br>
+           <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblDepartmentLine2" style="color:Black;font-size:13px;font-weight:bold;"></span>
+       </div>
+   </div>
+   <div style="width: 520px; height: 330px; background-color: #FFFFFF; border: 1px solid #000000;">
+
+               <div style="height: 100px;">
+                   <img src="/_img/logos/academicIDLogos.png" alt="Λογότυπα Δράσης" width="500">
+               </div>
+
+       <br>
+       <div style="margin-left: 10px; margin-top: 30px">
+           <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblAcademicAddress" style="color:Black;font-weight:bold;"><span style="font-weight: bold; color: Blue">ΕΔΡΑ ΣΧΟΛΗΣ: </span>Δ. ΠΕΙΡΑΙΩΣ / Π. ΠΕΙΡΑΙΩΣ</span>
+       </div>
+       <div>
+           <div style="margin-left: 10px; float: left">
+               <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblStudentNumber" style="color:Black;font-weight:bold;"><span style="font-weight: bold; color: Blue">Α.Μ.: </span>Π17032</span>
+           </div>
+           <div style="margin-right: 10px; float: right">
+               <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblEntryDate" style="color:Black;font-weight:bold;"><span style="font-weight: bold; color: Blue">ΗΜ/ΝΙΑ ΕΓΓΡΑΦΗΣ: </span>09/2017</span>
+           </div>
+           <div style="clear: both">
+           </div>
+       </div>
+       <div>
+           <div style="margin-left: 10px; float: left">
+               <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblAddress" style="color:Blue;font-weight:bold;">ΤΟΠΟΣ ΚΑΤΟΙΚΙΑΣ:</span>
+               <br>
+               <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblStudentAddressLine1" style="color:Black;font-weight:bold;">Δ. ΑΘΗΝΑΙΩΝ</span>
+               <br>
+               <span id="ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucAcademicIDPreview_ucStudentAcademicIDPreview_lblStudentAddressLine2" style="color:Black;font-weight:bold;">Π. ΑΤΤΙΚΗΣ</span>
+           </div>
+       </div>
+       <div style="clear: both">
+       </div>
+       <div style="float: right; margin-right: 20px; font-weight: bold; color: red;">
+           LASER 0123456
+       </div>
+       <div style="clear: both">
+       </div>
+       <div>
+           <div style="margin-left: 10px; color: black; float: left;">
+               Η παρούσα ακαδημαϊκή ταυτότητα ανήκει στο<br>
+               ίδρυμα/φορέα που αναγράφεται στην άλλη<br>
+               όψη της. Όποιος την βρει παρακαλείται να την<br>
+               επιστρέψει εκεί.
+           </div>
+           <div style="margin-right: 10px; margin-top: 10px; float: right;">
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result:             <div id="bcTarget" style="padding: 0px; overflow: auto; width: 121px;"><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 10px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 1px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 3px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 3px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 1px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 4px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 1px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 4px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 1px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 3px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 1px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 2px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 3px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 1px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; width: 1px"></div><div style="float: left; font-size: 0px; width:0; border-left: 2px solid #000000; height: 50px;"></div><div style="float: left; font-size: 0px; background-color: #FFFFFF; height: 50px; widt
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result:         </div>
+           <div style="clear: both">
+           </div>
+       </div>
+   </div>
+
+   <script type="text/javascript">
+
+       $("#bcTarget").barcode('266882083200', "code128");
+
+   </script>
+
+
+
+       </div></td>
+     </tr>
+   </tbody></table><script id="dxss_1256436366" type="text/javascript">
+   <!--
+   aspxAddDisabledItems('ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview',[[['dxtcDisabled_Aqua'],[''],['T0','AT0','T1','AT1'],['','T'],[[''],[''],[''],['']],['Img']]]);
+
+   var dxo = new ASPxClientPageControl('ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview');
+   window['dxFacultyMemberProfileTabControl'] = dxo;
+   dxo.enableSlideCallbackAnimation = true;
+   dxo.enableSwipeGestures = true;
+   dxo.uniqueID = 'ctl00$ctl00$cphMain$cphSecureMain$ucDeliveredToStudentApplication$dxStudentApplicationPreview';
+   dxo.emptyHeight = true;
+   dxo.CreateTabs([['ApplicationPreview',,,,],['CardPreview',,,,]]);
+   dxo.tabCount=2;
+   dxo.InlineInitialize();
+
+   //-->
+   </script>
+
+
+           </fieldset>
+       </div>
+
+                   <input type="hidden" id="ctl00_ctl00_ucHintPopup_dxHintPopupWS" name="ctl00_ctl00_ucHintPopup_dxHintPopupWS" value="0:0:-1:-10000:-10000:0:500px:20px:1:0:0:0"><div id="ctl00_ctl00_ucHintPopup_dxHintPopup_PW-1" style="position:absolute;left:0px;top:0px;z-index:10000;visibility:hidden;display:none;">
+     <table id="ctl00_ctl00_ucHintPopup_dxHintPopup_PWST-1" cellspacing="0" cellpadding="0" style="border-collapse:collapse;border-collapse:separate;position:relative;">
+       <tbody><tr>
+         <td class="dxpcControl" ontouchstart="aspxPWMDown(event,'ctl00_ctl00_ucHintPopup_dxHintPopup',-1,false)" onmousemove="aspxPWMMove(event,'ctl00_ctl00_ucHintPopup_dxHintPopup',-1)" style="height:20px;width:500px;cursor:default;min-width:0.00001%;"><table id="ctl00_ctl00_ucHintPopup_dxHintPopup_CLW-1" cellspacing="0" cellpadding="0" style="height:20px;width:500px;border-collapse:collapse;border-collapse:separate;">
+           <tbody><tr>
+             <td id="ctl00_ctl00_ucHintPopup_dxHintPopup_PWC-1" class="dxpcContent" style="color:Black;background-color:#EEEEEE;border-width:0px;height:100%;"><div id="ctl00_ctl00_ucHintPopup_dxHintPopup_CSD-1" class="dxpcContentPaddings" style="padding-left:10px;padding-right:10px;padding-top:8px;padding-bottom:8px;">
+
+               <div id="ctl00_ctl00_ucHintPopup_dxHintPopup_popupPanel" class="info">
+
+                   <span id="dxHintPopupValue"></span>
+
+               </div>
+
+             </div></td>
+           </tr>
+         </tbody></table></td><td style="background:url('/DXR.axd?r=1_62-PBvc8') no-repeat left top;"></td>
+       </tr><tr>
+         <td style="background:url('/DXR.axd?r=1_61-PBvc8') no-repeat left top;"></td><td style="background:url('/DXR.axd?r=1_63-PBvc8') no-repeat left top;"><div style="height:5px;width:5px;">
+
+         </div></td>
+       </tr>
+     </tbody></table>
+   </div><table id="ctl00_ctl00_ucHintPopup_dxHintPopup_LP" class="dxpcLoadingPanel" cellspacing="0" cellpadding="0" style="border-collapse:collapse;left:0px;top:0px;z-index:30000;display:none;">
+     <tbody><tr>
+       <td class="dx" style="padding-right:8px;"><img src="/DXR.axd?r=1_48-PBvc8" alt="" align="middle"></td><td class="dx" style="padding-left:0px;"><span id="ctl00_ctl00_ucHintPopup_dxHintPopup_TL">Loading…</span></td>
+     </tr>
+   </tbody></table><div id="ctl00_ctl00_ucHintPopup_dxHintPopup_LD" class="dxpcLoadingDiv" style="left:0px;top:0px;z-index:29999;display:none;position:absolute;">
+
+   </div><script id="dxss_1500469669" type="text/javascript">
+   <!--
+
+   var dxo = new ASPxClientPopupControl('ctl00_ctl00_ucHintPopup_dxHintPopup');
+   window['dxHintPopup'] = dxo;
+   dxo.callBack = function(arg) { WebForm_DoCallback('ctl00$ctl00$ucHintPopup$dxHintPopup',arg,aspxCallback,'ctl00_ctl00_ucHintPopup_dxHintPopup',aspxCallbackError,true); };
+   dxo.enableSlideCallbackAnimation = true;
+   dxo.enableSwipeGestures = true;
+   dxo.uniqueID = 'ctl00$ctl00$ucHintPopup$dxHintPopup';
+   dxo.popupAnimationType='slide';
+   dxo.allowResize=true;
+   dxo.popupAction='None';
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result: dxo.closeAction='CloseButton';
+   dxo.popupHorizontalAlign='OutsideRight';
+   dxo.popupVerticalAlign='TopSides';
+   dxo.popupHorizontalOffset=5;
+   dxo.isPopupPositionCorrectionOn=false;
+   dxo.width=500;
+   dxo.height=20;
+   aspxAddSelectedItems('ctl00_ctl00_ucHintPopup_dxHintPopup',[[['dxpcPinButtonChecked'],[''],['HPB-1'],,[['']],['Img']],[['dxpcCollapseButtonChecked'],[''],['HMNB-1'],,[['']],['Img']],[['dxpcMaximizeButtonChecked'],[''],['HMXB-1'],,[['']],['Img']]]);
+   dxo.InlineInitialize();
+
+   //-->
+   </script>
+
+               </div>
+               <div id="footer">
+                   <div class="links">
+                       <a href="http://www.grnet.gr/" target="_blank">
+                           <img src="/_img/logos/grnet_logo.png" alt="ΕΔΥΤΕ"></a>
+                       <a href="http://europa.eu/" target="_blank">
+                           <img src="/_img/logos/ee.png" alt="Ευρωπαϊκή Ένωση"></a>
+                       <a href="http://www.digitalplan.gov.gr/portal/" target="_blank">
+                           <img src="/_img/logos/psifiaki_ellada.png" alt="Ψηφιακή Σύγκλιση"></a>
+                       <a href="http://www.espa.gr/" target="_blank">
+                           <img src="/_img/logos/espa.png" alt="ΕΣΠΑ"></a>
+                   </div>
+                   <div style="text-align: center; margin-top: 10px; font-weight: bold; font-size: 1em; color: Black">
+                       Με τη συγχρηματοδότηση της Ελλάδας &amp; της Ευρωπαϊκής Ένωσης
+                   </div>
+               </div>
+               <div id="validation">
+                   <a href="http://validator.w3.org/check/referer" target="_blank">
+                       <img src="/_img/valid-xhtml10-blue.png" alt="Valid XHTML 1.0"></a>
+                   <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/" target="_blank">
+                       <img src="/_img/wcag2AA-blue.png" alt="23, April 2012
+                                                      Web Content Accessibility Guidelines 2.0 at http://www.w3.org/TR/2008/REC-WCAG20-20081211/
+                                                      Conformance level satisfied: Level AA
+                                                      Web pages: http://academicid.minedu.gov.gr/*, http://submit-academicid.minedu.gov.gr"></a>
+               </div>
+           </div>
+
+
+               <script type="text/javascript">
+                   (function (i, s, o, g, r, a, m) {
+                       i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                           (i[r].q = i[r].q || []).push(arguments)
+                       }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                       m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                   })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                   ga('create', 'UA-2262707-32', 'auto');
+                   ga('send', 'pageview');
+
+               </script>
+
+
+           <script type="text/javascript">
+               //$(function () {
+               //    $("ul#ticker").liScroll({ travelocity: 0.07 });
+               //});
+           </script>
+
+
+   <script type="text/javascript">
+   //<![CDATA[
+   var studentUrls = {"ChangePasswordUrl":"../../Common/AlterPassword.aspx","ChangeMobilePhoneUrl":"EditorPopups/ChangeMobilePhone.aspx","ContactFormUrl":"../EditorPopups/ContactForm.aspx","ContactHistoryUrl":"../EditorPopups/ContactHistory.aspx","ViewMapUrl":"../../Common/ViewMap.aspx","ViewCanceledApplicationUrl":"../EditorPopups/ViewCanceledApplication.aspx","QuestionnaireUrl":"../EditorPopups/Questionnaire.aspx"};var portalUrls = {"ParticipationTermsUrl":"../../Common/ParticipationTerms.aspx","UsageTermsUrl":"../../Common/UsageTerms.aspx"};
+   WebForm_InitCallback();//]]>
+   </script>
+   <input type="hidden" name="DXScript" id="DXScript" value="1_142,1_80,1_135,1_77,1_120,1_128,1_126,1_91,1_136,1_133"></form>
+
+
+       <script type="text/javascript">
+           $(function () {
+2021-04-16 12:53:28.848 5734-5847/com.example.qrcodetry1 I/result:             var cookieConsentID = 'ctl00_ctl00_cookieConsent';
+               if (document.cookie.indexOf("cookie-consentAcademicID") < 0) {
+                   $('#' + cookieConsentID).slideDown('slow');
+               }
+
+               $('#consent').on('click', function (event) {
+                   document.cookie = "cookie-consentAcademicID=cookies=yes; max-age=" + (24 * 60 * 60 * 365); // 1 year cookie
+                   $('#' + cookieConsentID).slideUp('slow');
+                   event.preventDefault();
+               });
+
+               $('#learn-more').on('click', function () {
+                   var selectedLanguage = LanguageHelper.getSelectedLanguage();
+
+                   if (selectedLanguage === "en") {
+                       location.href = '/Privacy.aspx?l=en';
+                   }
+                   else {
+                       location.href = '/Privacy.aspx';
+                   }
+               });
+           });
+       </script>
+
+
+   </body></html></html>

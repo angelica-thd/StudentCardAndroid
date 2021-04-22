@@ -1,0 +1,47 @@
+<resources>
+    <!-- activities -->
+    <string name="title_activity_reg_user" translatable="false">RegUser</string>
+    <string name="tab_student" translatable="false">Φοιτητής</string>
+    <string name="tab_admin" translatable="false">Διαχειριστής</string>
+    <string name="home" translatable="false">Πάσο</string>
+    <string name="settings" translatable="false">Ρυθμίσεις</string>
+    <string name="schedule" translatable="false">Πρόγραμμα</string>
+    <string name="grades" translatable="false">Βαθμολογίες</string>
+
+    <!-- r text -->
+    <string name="student_user_reg">Εγγραφή Φοιτητή ως Χρήστης</string>
+    <string name="student_reg">Εγγραφή Φοιτητή</string>
+    <string name="admin_reg">Εγγραφή Διαχειριστή</string>
+    <string name="register">Εγγραφή</string>
+    <string name="login">Σύνδεση</string>
+    <string name="logout">Αποσύνδεση</string>
+    <string name="password">Κωδικός Πρόσβασης</string>
+    <string name="password_conf">Επιβεβαίωση Κωδικού</string>
+    <string name="invalid_creds">Λάθος κωδικός ή λάθος email</string>
+    <string name="invalid_pass">Οι κωδικοί πρόσβασης πρέπει να είναι ίδιοι.</string>
+    <string name="checkInternet">Ελέγξτε τη σύνδεσή σας στο δίκτυο.</string>
+    <string name="blankField">Συμπληρώστε όλα τα πεδία!</string>
+    <string name="error500">Το σύστημα δεν ανταποκρίνεται. Προσπαθήστε πάλι αργότερα.</string>
+    <string name="authorization">Πρέπει να συνδεθείτε σε λογαριασμό πρώτα.</string>
+    <string name="validationfail">Συμπληρώστε όλα τα πεδία πρώτα.</string>
+    <string name="alreadyexists">Αυτό το email ή/και το username χρησιμοποιούνται ήδη. \nΠαρακαλώ, χρησιμοποιείστε διαφορετικά.</string>
+    <string name="email">E-mail</string>
+    <string name="username">Όνομα Χρήστη</string>
+    <string name="username_id">Αριθμός Μητρώου</string>
+    <string name="fullname">Ονοματεπώνυμο</string>
+    <string name="photo">Εικόνα Ταυτοποίησης</string>
+    <string name="app_name">Ακαδημαϊκή Ταυτότητα</string>
+    <string name="phone">Τηλέφωνο Επικοινωνίας</string>
+    <string name="address">Τόπος Κατοικίας</string>
+    <string name="university">Πανεπιστήμιο</string>
+    <string name="department">Τμήμα</string>
+    <string name="entry_date">Ημερομηνία Εγγραφήε</string>
+    <string name="hello_world" translatable="false">Hello Round World!</string>
+    <string name="signup">Δεν έχετε λογαριασμό;\nΚάντε εγγραφή.</string>
+    <string name="go2login">Έχετε ήδη λογαριασμό;\nΣυνδεθείτε.</string>
+    <string name="professional" translatable="false">Δεν είσαι φοιτητής;\nΣυνδέσου στον επαγγελματικό λογαριασμό σου εδώ.</string>
+    <string name="photo_info" translatable="false">Επιλέξτε μια φωτογραφία η οποία έχει\n φωτεινό φόντο,\n εμφανή τα χαρακτηριστικά προσώπου.</string>
+    <string name="title_activity_student_signup">StudentSignup</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
