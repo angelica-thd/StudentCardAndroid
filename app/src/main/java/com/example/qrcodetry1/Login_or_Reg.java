@@ -52,7 +52,7 @@ public class Login_or_Reg extends AppCompatActivity {
 
     public void send2signup(View view){
        startActivity(new Intent(this,RegUser.class));
-    }
+    } //RegUser.class
 
 
 

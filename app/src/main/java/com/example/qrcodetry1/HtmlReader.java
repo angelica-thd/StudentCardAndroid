@@ -3,6 +3,8 @@ package com.example.qrcodetry1;
 import android.content.Context;
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -57,8 +59,34 @@ public class HtmlReader {
                 //build json object instead
                 //put try catch on every field to prevent failure
                 //try changing id
+                JSONObject student_info = new JSONObject();
+                try {
+                    student_info.put("greekFname",  doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekFirstName").text());
+                    student_info.put("greekLname", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekLastName").text());
+                    student_info.put("latinFname", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblLatinFirstName").text());
+                    student_info.put("latinLname", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblLatinLastName").text());
+                    student_info.put("address", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblAddress").text());
+                    student_info.put("zipCode", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblZipCode").text());
+                    student_info.put("city", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblCity").text());
+                    student_info.put("prefecture", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblPrefecture").text());
+                    student_info.put("institution", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentInstitution").text());
+                    student_info.put("school", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentSchool").text());
+                    student_info.put("department", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentDepartment").text());
+                    student_info.put("academicAddress",  doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicAddress").text());
+                    student_info.put("academicZipCode",  doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicZipCode").text());
+                    student_info.put("academicPrefecture",  doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicPrefecture").text());
+                    student_info.put("academicCity", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblStudentAcademicCity").text());
+                    student_info.put("studentshipType",doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblStudentshipType").text());
+                    student_info.put("studentNumber", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblStudentNumber").text());
+                    student_info.put("studentAMKA", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblAMKA").text());
+                    student_info.put("academicPhoto", doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto").attr("src"));
 
-                String greekFname = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekFirstName").text();
+                } catch (
+                        JSONException e) {
+                    e.printStackTrace();
+                }
+
+               /* String greekFname = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekFirstName").text();
                 String greekLname = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekLastName").text();
                 String latinFname = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblLatinFirstName").text();
                 String latinLname = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblLatinLastName").text();
@@ -79,12 +107,12 @@ public class HtmlReader {
                 String entryDate = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_ucAcademicInfoView_lblEntryDate").text();
                 String academicPhoto = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto").attr("src");
 
-                Student student = new Student
-                        .Builder(greekFname,greekLname,latinFname,latinLname,address,zipCode,city,prefecture,institution,school,department,academicAddress,academicZipCode,academicPrefecture,academicCity,studentshipType,studentNumber,studentAMKA,entryDate,academicPhoto)
-                        .build();
-                Log.i("student", student.toString());
+                //Student student = new Student
+                  //      .Builder(greekFname,greekLname,latinFname,latinLname,address,zipCode,city,prefecture,institution,school,department,academicAddress,academicZipCode,academicPrefecture,academicCity,studentshipType,studentNumber,studentAMKA,entryDate,academicPhoto)
+                   //     .build();
+
                 //dosnt work
-                byte[] photobytes = academicPhoto.getBytes();
+                //byte[] photobytes = academicPhoto.getBytes();
 
                 //Bitmap bmp = BitmapFactory.decodeByteArray(photobytes,0,photobytes.length);
                // ImageView image=new ImageView(context);
@@ -112,11 +140,12 @@ public class HtmlReader {
                         .append("\n").append("ΚΑΛΛΙΚΡΑΤΙΚΟΣ ΔΗΜΟΣ: ").append(academicPrefecture)
                         .append("\n").append("ΠΟΛΗ: ").append(academicCity)
                         .append("\n\n").append("PHOTO")
-                        .append("\n").append(photobytes.toString());
-                Log.i("info",stringBuilder.toString());
+                        .append("\n").append(photobytes.toString()); */
 
-                StringBuilder name = new StringBuilder().append(student.getGreekFname()).append(" ").append(student.getGreekLname()).append("/\n").append(student.getLatinFname()).append(" ").append(student.getLatinLname());
-                request.signup_student(auth_token,name.toString(),student.getInstitution(),student.getDepartment(),student.getStudentNumber(),student);
+                Log.i("student", student_info.toString());
+
+
+                request.signup_student(auth_token,student_info);
 
 
             }

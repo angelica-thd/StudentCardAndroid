@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:alpha="0.95"
+    android:background="@drawable/rectangled_back"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/rectangled_back"
-    android:alpha="0.95"
     tools:context=".StudentInfoReg">
 
 
@@ -32,28 +32,32 @@
         android:id="@+id/textView3"
         android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
         android:gravity="center"
         android:text="Ανακατεύθυνση στην ακαδημαϊκή σελίδα εγγραφής"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/webView"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.58" />
 
-    <WebView
-        android:id="@+id/webView2"
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="800dp"
+        android:layout_height="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        app:layout_constraintStart_toStartOf="parent">
 
-    </WebView>
+        <WebView
+            android:id="@+id/webView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </WebView>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

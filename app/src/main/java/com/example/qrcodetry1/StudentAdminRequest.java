@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class StudentAdminRequest {
     private Context context;
-    private StringBuilder postUrl = new StringBuilder().append("https://3000-olive-amphibian-ce2asb6n.ws-eu03.gitpod.io/");
+    private StringBuilder postUrl = new StringBuilder().append("https://3000-sapphire-porcupine-rq946s26.ws-eu04.gitpod.io/");
 
 
 

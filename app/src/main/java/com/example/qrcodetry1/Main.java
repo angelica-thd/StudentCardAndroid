@@ -2,6 +2,7 @@ package com.example.qrcodetry1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -16,7 +17,7 @@ import com.google.zxing.WriterException;
 public class Main extends AppCompatActivity {
     private TextView cred,info;
     private QR qr;
-    private ImageView QRimg2;
+    private ImageView QRimg2,photo_img;
     private String userType, username, name, university, department, id_number,auth_token,activity;
     private StringBuilder student_info;
     private BottomNavigationView bottomBar;
@@ -27,6 +28,10 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+        photo_img = findViewById(R.id.photo_id);
+        Bitmap photo = (Bitmap) getIntent().getParcelableExtra("photo_id");
+        photo_img.setImageBitmap(photo);
 
         studentAdminRequest = new StudentAdminRequest(this);
         info = findViewById(R.id.student_info);
