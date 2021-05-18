@@ -61,6 +61,7 @@
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
                 android:ems="10"
+                android:textColor="#3C3C3C"
                 android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.505"
@@ -74,6 +75,7 @@
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
                 android:ems="10"
+                android:textColor="#3C3C3C"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="@id/back"
                 app:layout_constraintHorizontal_bias="0.511"
@@ -87,6 +89,7 @@
                 android:layout_marginTop="40dp"
                 android:drawableLeft="@drawable/ic_baseline_face_24"
                 android:ems="10"
+                android:textColor="#3C3C3C"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="@+id/back"
                 app:layout_constraintStart_toStartOf="@+id/back"
@@ -99,6 +102,7 @@
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_password_24"
                 android:ems="10"
+                android:textColor="#3C3C3C"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="@id/back"
                 app:layout_constraintHorizontal_bias="0.511"
@@ -112,6 +116,7 @@
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_password_24"
                 android:ems="10"
+                android:textColor="#3C3C3C"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="@id/back"
                 app:layout_constraintHorizontal_bias="0.511"
@@ -214,25 +219,55 @@
                 android:background="@drawable/rectangled"
                 android:text="@string/login"
                 android:textColor="@color/white"
-                app:backgroundTint="@color/green"
+                app:backgroundTint="#044d8c"
                 app:layout_constraintBottom_toBottomOf="@+id/backdown"
                 app:layout_constraintEnd_toEndOf="@+id/backdown"
                 app:layout_constraintHorizontal_bias="0.45"
                 app:layout_constraintStart_toStartOf="@+id/backdown" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
+                android:id="@+id/admin_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_baseline_arrow_forward_24"
-                app:backgroundTint="@color/green"
+                app:backgroundTint="#044d8c"
                 app:layout_constraintBottom_toBottomOf="@+id/back"
                 app:layout_constraintEnd_toEndOf="@+id/back"
                 app:tint="@color/white" />
 
+            <ImageView
+                android:id="@+id/student"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:background="@drawable/normal"
+                android:onClick="onStudentclicked"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/back"
+                app:layout_constraintEnd_toStartOf="@+id/admin_fab"
+                app:layout_constraintHorizontal_bias="0.113"
+                app:layout_constraintStart_toStartOf="@+id/back"
+                app:layout_constraintTop_toBottomOf="@+id/pass_conf_st"
+                app:layout_constraintVertical_bias="0.466"
+                app:srcCompat="@drawable/ic_outline_school_24"
+                tools:ignore="OnClick" />
+
+            <ImageView
+                android:id="@+id/admin"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                android:background="@drawable/normal"
+                android:onClick="onAdminclicked"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="@+id/back"
+                app:layout_constraintEnd_toStartOf="@+id/admin_fab"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toEndOf="@+id/student"
+                app:layout_constraintTop_toBottomOf="@+id/pass_conf_st"
+                app:srcCompat="@drawable/ic_outline_shield_24"
+                tools:ignore="OnClick" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

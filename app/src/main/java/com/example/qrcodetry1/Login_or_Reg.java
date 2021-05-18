@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Login_or_Reg extends AppCompatActivity {
     private EditText pass, email;
     private TextView emailtxt, passtxt;
@@ -37,11 +40,15 @@ public class Login_or_Reg extends AppCompatActivity {
     }
 
     @SuppressLint("ResourceAsColor")
-    public void loginClick(View view) {
+    public void loginClick(View view) throws JSONException {
         Log.i("click","click");
         if(!email.getText().toString().equals(null) || !pass.getText().toString().equals(null)) {
+            if(email.getText().toString().contains(" ")) email.setText(email.getText().toString().split(" ")[0]);
             Log.i("text", email.getText().toString());
-            studentAdminRequest.auth_login(email.getText().toString(),pass.getText().toString());
+            JSONObject log_params = new JSONObject();
+            log_params.put("email",email.getText().toString());
+            log_params.put("password",pass.getText().toString());
+            studentAdminRequest.auth_login(log_params);
         }else {
             email.setHintTextColor(R.color.red);
             pass.setHintTextColor(R.color.red);
@@ -51,28 +58,10 @@ public class Login_or_Reg extends AppCompatActivity {
 
 
     public void send2signup(View view){
-       startActivity(new Intent(this,RegUser.class));
+       startActivity(new Intent(this,Register.class));
     } //RegUser.class
 
 
 
-/*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
-        if(result!=null){
-            if(result.getContents()!=null){
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                //builder.setMessage(result.getContents()).setTitle("Scanning Result");
 
-                    builder.setPositiveButton("Scan Again", (dialog, which) -> new QR().scan_QR(Login_or_Reg.this)).setNegativeButton("Finish", (dialog, which) -> finish());
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }else{
-                Toast.makeText(this,"No Results",Toast.LENGTH_LONG).show();
-            }
-        }else {
-            super.onActivityResult(requestCode, resultCode, data);
-        }
-    } */
 }

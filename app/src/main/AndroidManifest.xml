@@ -25,7 +25,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QrCodeTry1.NoActionBar">
-        <activity android:name=".StudentInfoReg"></activity>
+        <activity android:name=".SearchStudent"></activity>
+        <activity android:name=".MainAdmin" />
+        <activity android:name=".StudentInfoReg" />
         <activity
             android:name=".StudentSignup"
             android:label="@string/title_activity_student_signup" />
@@ -35,7 +37,7 @@
         <activity
             android:name=".RegUser"
             android:label="@string/title_activity_reg_user" />
-        <activity android:name=".Main" />
+        <activity android:name=".MainStudent" />
         <activity android:name=".Register" />
         <activity
             android:name=".CaptureAct"

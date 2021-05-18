@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.QrCodeTry1" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/green</item>
-        <item name="colorPrimaryVariant">@color/greenvariant</item>
+        <item name="colorPrimary">@color/appbrightblue</item>
+        <item name="colorPrimaryVariant">#047e7a</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/contrast</item>

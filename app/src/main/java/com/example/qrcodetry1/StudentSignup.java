@@ -36,7 +36,7 @@ public class StudentSignup extends AppCompatActivity {
     public void send2main(View view){
         if(!university.getText().toString().equals("") || !department.getText().toString().equals("") || !id_number.getText().toString().equals("")) {
             //studentAdminRequest.signup_student(auth_token,name,university.getText().toString(),department.getText().toString(),id_number.getText().toString(), new Student());
-            startActivity(new Intent(this,Main.class).
+            startActivity(new Intent(this, MainStudent.class).
                     putExtra("auth_token",auth_token).
                     putExtra("activity","stu_signup").
                     putExtra("userType","Student user").

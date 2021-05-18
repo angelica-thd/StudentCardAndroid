@@ -37,19 +37,22 @@
                 app:srcCompat="@drawable/rectangled"
                 app:tint="@color/white" />
 
-            <ImageView
-                android:id="@+id/photo_id"
-                android:layout_width="102dp"
-                android:layout_height="99dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/round"
-                android:scaleType="fitXY"
-                app:layout_constraintBottom_toTopOf="@+id/back"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/searchStudent"
+                android:layout_width="325dp"
+                android:layout_height="40dp"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
+                android:ems="10"
+                android:hint="@string/searchbByNum"
+                android:inputType="textPersonName"
+                android:textColor="#3C3C3C"
+                android:textColorLink="@color/contrast"
+                app:layout_constraintBottom_toTopOf="@+id/searchResult"
+                app:layout_constraintEnd_toEndOf="@+id/back"
+                app:layout_constraintStart_toStartOf="@+id/back"
+                app:layout_constraintTop_toBottomOf="@+id/searchlabel"
+                app:layout_constraintVertical_bias="0.056" />
 
             <TextView
                 android:id="@+id/credRes"
@@ -63,58 +66,43 @@
                 android:textSize="24dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/back"
-                app:layout_constraintEnd_toStartOf="@+id/photo_id"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.533" />
 
             <TextView
-                android:id="@+id/cred"
+                android:id="@+id/searchlabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
-                android:text="User type"
+                android:text="@string/searchactivity"
+                android:textColor="#3C3C3C"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/QRimg2"
                 app:layout_constraintEnd_toEndOf="@+id/back"
                 app:layout_constraintHorizontal_bias="0.121"
                 app:layout_constraintStart_toStartOf="@+id/back"
                 app:layout_constraintTop_toTopOf="@+id/back" />
 
-            <ImageView
-                android:id="@+id/QRimg2"
-                android:layout_width="256dp"
-                android:layout_height="256dp"
-                android:layout_marginTop="15dp"
-                app:layout_constraintBottom_toTopOf="@+id/student_info"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cred"
-                tools:src="@tools:sample/avatars" />
-
             <TextView
-                android:id="@+id/student_info"
+                android:id="@+id/searchResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:gravity="center_horizontal"
-                android:text="user Info"
+                android:textColor="#3C3C3C"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="@+id/back"
                 app:layout_constraintEnd_toEndOf="@+id/back"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="@+id/back"
-                app:layout_constraintTop_toBottomOf="@+id/QRimg2"
-                app:layout_constraintVertical_bias="0.193" />
+                app:layout_constraintTop_toBottomOf="@+id/searchlabel" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottombar"
+        android:id="@+id/bottombaradmin"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_gravity="bottom"
@@ -129,6 +117,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottombar_student" />
+        app:menu="@menu/bottombar_admin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

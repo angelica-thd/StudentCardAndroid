@@ -18,7 +18,7 @@ public class Settings extends AppCompatActivity {
         bottomBar.getMenu().getItem(1).setChecked(true);
         bottomBar.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.Home) {
-                startActivity(new Intent(getApplicationContext(), Main.class));
+                startActivity(new Intent(getApplicationContext(), MainStudent.class));
                 overridePendingTransition(0, 0);
                 return true;
             }

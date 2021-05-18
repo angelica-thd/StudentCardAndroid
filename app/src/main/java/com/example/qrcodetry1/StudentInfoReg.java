@@ -94,7 +94,7 @@ public class StudentInfoReg extends AppCompatActivity {
                 view.scrollTo(0,2*view.getHeight());
                 view.setDrawingCacheEnabled(true);
                 Bitmap bitmap = view.getDrawingCache();
-                new Intent(StudentInfoReg.this, Main.class).putExtra("photo_id",bitmap);
+                new Intent(StudentInfoReg.this, MainStudent.class).putExtra("photo_id",bitmap);
                 view.loadUrl("javascript:window.HTMLOUT.processHTML('<html>'+document.getElementsByTagName('html')[0].outerHTML+'</html>');");
 
             }
@@ -110,7 +110,7 @@ public class StudentInfoReg extends AppCompatActivity {
             htmlSource = html;
             //Log.i("result",html);
             HtmlReader reader = new HtmlReader();
-            reader.readHTML(html,auth_token,studentAdminRequest, activity);
+            reader.readHTML(html,auth_token,studentAdminRequest, StudentInfoReg.this);
 
            /* if url is dummyURL write .txt file
             try{

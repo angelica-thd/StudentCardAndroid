@@ -65,8 +65,8 @@
        android:background="@drawable/rectangled"
        android:onClick="send2signup"
        android:text="@string/register"
+       app:backgroundTint="#044d8c"
        android:textColor="@color/white"
-       app:backgroundTint="@color/green"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="@+id/signupbackgr"
        app:layout_constraintStart_toStartOf="@+id/signupbackgr"
@@ -112,7 +112,7 @@
        android:onClick="loginClick"
        android:text="@string/login"
        android:textColor="@color/white"
-       app:backgroundTint="@color/green"
+       app:backgroundTint="#044d8c"
        app:layout_constraintBottom_toBottomOf="@+id/loginbackgr"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
@@ -157,5 +157,21 @@
        app:layout_constraintHorizontal_bias="0.25"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent" />
+
+   <TextView
+       android:id="@+id/textView14"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="80dp"
+       android:text="@string/register"
+       android:textColor="#FFFFFF"
+       android:textSize="14sp"
+       android:textStyle="bold"
+       app:layout_constraintBottom_toBottomOf="@+id/singup_btn"
+       app:layout_constraintEnd_toEndOf="@+id/singup_btn"
+       app:layout_constraintHorizontal_bias="0.502"
+       app:layout_constraintStart_toStartOf="@+id/singup_btn"
+       app:layout_constraintTop_toTopOf="@+id/signupbackgr"
+       app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
