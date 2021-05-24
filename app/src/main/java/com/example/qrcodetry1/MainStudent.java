@@ -1,16 +1,21 @@
 package com.example.qrcodetry1;
 
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.webkit.CookieManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,16 +23,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONObject;
 
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
+import java.io.File;
 import java.util.Iterator;
 
 public class MainStudent<photourl> extends AppCompatActivity {
     private TextView cred, info;
     private QR qr;
     private ImageView QRimg2, photo_img;
-    private String userType, auth_token, activity;
+    private String userType, auth_token, activity,photourl;
     private BottomNavigationView bottomBar;
     private StudentAdminRequest studentAdminRequest;
 
@@ -56,22 +59,19 @@ public class MainStudent<photourl> extends AppCompatActivity {
         cred.setText(userType);
 
 
-
-
         studentAdminRequest.me(auth_token);
-        Log.i("userType", userType);
-        Log.i("student from me() ", preferences.getString("student_info", "student info"));
-
 
         if (userType.contains("Student")) {
 
             StringBuilder infoStr = new StringBuilder();
             try {
                 JSONObject student = new JSONObject(preferences.getString("student_info", "student info"));
-                String photourl = student.getString("photoURL");
+                photourl = student.getString("photoURL");
                 student.remove("photoURL");
                 Log.i("photourl",photourl);
-                new DownloadImage().execute(photourl);
+                //new DownloadImage().execute(photourl);
+                setIDphoto();
+
                 for (Iterator<String> it = student.keys(); it.hasNext(); ) {
                     String key = it.next();
 
@@ -96,63 +96,49 @@ public class MainStudent<photourl> extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
             }
-            if (item.getItemId() == R.id.Schedule) {
-                startActivity(new Intent(getApplicationContext(), Schedule.class));
-                overridePendingTransition(0, 0);
-                return true;
-            }
-            if (item.getItemId() == R.id.Grades) {
-                startActivity(new Intent(getApplicationContext(), Grades.class));
-                overridePendingTransition(0, 0);
-                return true;
-            }
             return item.getItemId() == R.id.home;
         });
     }
 
 
-    private class DownloadImage extends AsyncTask {
+    private void setIDphoto() {
+        String pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
+        File imgFile = new  File(pictures+"/photo_id.jpg");
+        Log.i("path",imgFile.getAbsolutePath());
+        if(imgFile.exists()) {
+            Bitmap b = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            photo_img.setBackgroundResource(R.drawable.round);
+            photo_img.setImageBitmap(b);
 
 
-        @Override
-        protected Object doInBackground(Object[] URL) {
-            String imageURL = (String) URL[0];
-
-            Bitmap bitmap = null;
-
-            try {
-                // Download Image from URL
-                URL url = new URL(imageURL);
-                URLConnection conn = url.openConnection();
-                conn.connect();
-                for(int i=0; i<=5; i++){
-                    InputStream input = url.openStream();
-                    // Decode Bitmap
-                    bitmap = BitmapFactory.decodeStream(input);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return bitmap;
+        }else{
+          downloadPhoto(photourl);
+          setIDphoto();
+          Toast.makeText(this, "not found photo", Toast.LENGTH_LONG).show();
         }
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            mProgressDialog = new ProgressDialog(MainStudent.this);
-            mProgressDialog.setTitle("Download Image Tutorial");
-            mProgressDialog.setMessage("Loading...");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
-        }
 
-        @Override
-        protected void onPostExecute(Object result) {
-            // Set the bitmap into ImageView
-            photo_img.setImageBitmap((Bitmap) result);
-            // Close progressdialog
-            mProgressDialog.dismiss();
+    }
+
+    private void downloadPhoto(String downloadUrlOfImage){
+        try {
+            DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+            Uri downloadUri = Uri.parse(downloadUrlOfImage);
+            DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+                    .setAllowedOverRoaming(false)
+                    .setTitle("photo_id")
+                    .addRequestHeader("Cookie", CookieManager.getInstance().getCookie(downloadUrlOfImage))
+                    .addRequestHeader("User-Agent", "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}")
+                    .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
+            dm.enqueue(request);
+
+            // Toast.makeText(this, "Image download started.", Toast.LENGTH_SHORT).show();
+        } catch (Exception ex) {
+            Toast.makeText(this, "Image download failed.", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -8,6 +8,8 @@
     <string name="schedule" translatable="false">Πρόγραμμα</string>
     <string name="grades" translatable="false">Βαθμολογίες</string>
     <string name="search" translatable="false">Αναζήτηση Φοιτητή</string>
+    <string name="welcome_msg" translatable="false">Ηλεκτρονικό Πάσο</string>
+    <string name="welcome_descr" translatable="false">Με το πάσο σου, στο κινητό σου!</string>
 
 
     <!-- r text -->

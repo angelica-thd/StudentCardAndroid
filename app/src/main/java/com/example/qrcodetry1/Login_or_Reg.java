@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class Login_or_Reg extends AppCompatActivity {
         passtxt = findViewById(R.id.passtxtstudent);
         email = findViewById(R.id.email_logreg);
         emailtxt = findViewById(R.id.emailtxtstudent);
+        ImageView logoback = findViewById(R.id.logo);
 
         /*
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -37,7 +39,10 @@ public class Login_or_Reg extends AppCompatActivity {
         getSupportActionBar().hide();*/
 
 
+
     }
+
+
 
     @SuppressLint("ResourceAsColor")
     public void loginClick(View view) throws JSONException {

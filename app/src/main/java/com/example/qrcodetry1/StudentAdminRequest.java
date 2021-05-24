@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class StudentAdminRequest {
     private Context context;
-    private StringBuilder postUrl = new StringBuilder().append("https://3000-sapphire-porcupine-rq946s26.ws-eu04.gitpod.io/");
+    private StringBuilder postUrl = new StringBuilder().append("https://3000-sapphire-porcupine-rq946s26.ws-eu07.gitpod.io/");
     private String photourl;
 
     public StudentAdminRequest(Context context) {
@@ -115,6 +115,40 @@ public class StudentAdminRequest {
 
         requestQueue.add(request);
     }
+    public void find_student(JSONObject postData, String auth_token) {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        Log.i("me","here");
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        if (!postUrl.toString().contains("find/student")) postUrl = postUrl.append("find/student");
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
+                postUrl.toString(),
+                postData,
+                response -> {
+                    Log.i("response", response.toString());
+                    try {
+                        String message = response.getString("message");
+                        if(message.contains("Student found")){
+                            editor.putString("isStudent","true").apply();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                errorListener) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", auth_token);
+                return headers;
+            }
+        };
+
+        requestQueue.add(request);
+
+    }
 
 
     //POST /signup
@@ -197,6 +231,7 @@ public class StudentAdminRequest {
         requestQueue.add(jsonObjectRequest);
 
     }
+
 
 
         // fix error messages to user now that you can read them XD

@@ -1,10 +1,13 @@
 package com.example.qrcodetry1;
 
 import android.annotation.SuppressLint;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
@@ -14,14 +17,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
 import java.io.IOException;
 
 public class StudentInfoReg extends AppCompatActivity {
     private StudentAdminRequest studentAdminRequest;
     private WebView webView;
     private String htmlSource,auth_token;
-    private Context activity;
-    private Student student;
+
+    private String weburl,userAgent,photocookie;
 
 
     @Override
@@ -33,7 +37,7 @@ public class StudentInfoReg extends AppCompatActivity {
         WebView webView = findViewById(R.id.webView2);
 
         auth_token = getIntent().getStringExtra("auth_token");
-        
+        userAgent = "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}";
         CookieManager.getInstance().removeAllCookies(null);
         CookieManager.getInstance().flush();
 
@@ -42,7 +46,7 @@ public class StudentInfoReg extends AppCompatActivity {
         webView.clearHistory();
         webView.clearFormData();
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setUserAgentString("{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}");
+        webView.getSettings().setUserAgentString(userAgent);
         webView.addJavascriptInterface(new StudentInfoReg.LoadListener(), "HTMLOUT");
 
         String eduURL = "https://submit-academicid.minedu.gov.gr";
@@ -66,7 +70,29 @@ public class StudentInfoReg extends AppCompatActivity {
 
     }
 
+    private void downloadImageNew(String filename, String downloadUrlOfImage) {
+        String[] filenamechars = downloadUrlOfImage.split("/");
+        Log.i("filename", filenamechars[filenamechars.length - 1]);
+        filename = filenamechars[filenamechars.length - 1].replace("axd", "jpg");
+        try {
+            DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+            Uri downloadUri = Uri.parse(downloadUrlOfImage);
+            DownloadManager.Request request = new DownloadManager.Request(downloadUri);
 
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+                    .setAllowedOverRoaming(false)
+                    .setTitle(filename)
+                    .addRequestHeader("Cookie", CookieManager.getInstance().getCookie(downloadUrlOfImage))
+                    .addRequestHeader("User-Agent", userAgent)
+                    .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + filename);
+            dm.enqueue(request);
+            Toast.makeText(this, "Image download started.", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Image download failed.", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     private class MyWebViewClient extends WebViewClient {
         String dummyURL = "https://www.google.com";
@@ -76,12 +102,12 @@ public class StudentInfoReg extends AppCompatActivity {
         @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
+            weburl = url;
             Log.i("webView_URL_activity", url);
             if (eduURL.contains(url)) {
                 // This is my website, so do not override; let my WebView load the page
                 Toast.makeText(view.getContext(), "starting point", Toast.LENGTH_LONG).show();
-                view.scrollTo(view.getWidth(),view.getHeight());
+                view.scrollTo(view.getWidth(), view.getHeight());
             } else if (targetURL.contains(url)) {
                 Toast.makeText(view.getContext(), "reached target", Toast.LENGTH_LONG).show();
                 view.setOnTouchListener((v, event) -> true);        //disable clicking on webview
@@ -90,18 +116,18 @@ public class StudentInfoReg extends AppCompatActivity {
         }
 
         public void onPageFinished(WebView view, String url) {
-            if (url.contains(targetURL)){
-                view.scrollTo(0,2*view.getHeight());
+            if (url.contains(targetURL)) {
+                view.scrollTo(0, 2 * view.getHeight());
                 view.setDrawingCacheEnabled(true);
                 Bitmap bitmap = view.getDrawingCache();
-                new Intent(StudentInfoReg.this, MainStudent.class).putExtra("photo_id",bitmap);
+                new Intent(StudentInfoReg.this, MainStudent.class).putExtra("photo_id", bitmap);
+                //view.loadUrl("javascript:window.open(document.getElementById('ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto').getAttribute('src'))");
+
                 view.loadUrl("javascript:window.HTMLOUT.processHTML('<html>'+document.getElementsByTagName('html')[0].outerHTML+'</html>');");
 
             }
         }
     }
-
-
 
 
     public class LoadListener {

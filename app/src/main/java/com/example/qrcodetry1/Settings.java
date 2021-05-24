@@ -22,16 +22,7 @@ public class Settings extends AppCompatActivity {
                 overridePendingTransition(0, 0);
                 return true;
             }
-            if (item.getItemId() == R.id.Schedule) {
-                startActivity(new Intent(getApplicationContext(), Schedule.class));
-                overridePendingTransition(0, 0);
-                return true;
-            }
-            if (item.getItemId() == R.id.Grades) {
-                startActivity(new Intent(getApplicationContext(), Grades.class));
-                overridePendingTransition(0, 0);
-                return true;
-            }
+
             return item.getItemId() == R.id.Settings;
         });
     }

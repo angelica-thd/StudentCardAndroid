@@ -11,13 +11,7 @@
         android:title="@string/settings" />
 
     <item
-        android:id="@+id/Grades"
-        android:icon="@drawable/ic_outline_show_chart_24"
-        android:title="@string/grades" />
-
-    <item
-        android:id="@+id/Schedule"
-        android:icon="@drawable/ic_baseline_calendar_today_24"
-        android:title="@string/schedule" />
-
+        android:id="@+id/Logout"
+        android:icon="@drawable/ic_baseline_logout_24"
+        android:title="@string/logout" />
 </menu>

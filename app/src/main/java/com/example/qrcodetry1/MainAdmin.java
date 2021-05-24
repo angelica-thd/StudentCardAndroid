@@ -1,7 +1,9 @@
 package com.example.qrcodetry1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ public class MainAdmin extends AppCompatActivity {
     private ImageButton scan;
     private QR qr;
     private String activity,auth_token,userType;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class MainAdmin extends AppCompatActivity {
         scan = findViewById(R.id.scanQR);
         qr = new QR();
 
-
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         activity = getIntent().getStringExtra("activity");
         auth_token = getIntent().getStringExtra("auth_token");
         userType = getIntent().getStringExtra("userType");
@@ -51,16 +54,23 @@ public class MainAdmin extends AppCompatActivity {
                 Log.i("scan result",data.getStringExtra("SCAN_RESULT"));
                 try {
                     JSONObject jsonresult = new JSONObject(result.getContents());
-                    if(jsonresult.has("studentNumber")){
-                        info.setText(getString(R.string.QRresult));
-                        info.append("\n\n");
-                        info.append(jsonresult.getString("greekFname"));
-                        info.append(" ");
-                        info.append(jsonresult.getString("greekLname"));
-                        info.append("\nο οποίος φοιτά στο ");
-                        info.append(jsonresult.getString("institution"));
-                        info.append(" με αριθμό μητρώου ");
-                        info.append(jsonresult.getString("studentNumber"));
+                    if(jsonresult.has("srtoken")){
+                        JSONObject srtoken = new JSONObject().put("srtoken",jsonresult.getString("srtoken")).put("studentNumber","");
+                        studentAdminRequest.find_student(srtoken,auth_token);
+                        Log.i("srtoken",preferences.getString("isStudent","false"));
+                        if(preferences.getString("isStudent","false").contains("true")){
+                            info.setText(getString(R.string.QRresult));
+                            info.append("\n\n");
+                            info.append(jsonresult.getString("greekFname"));
+                            info.append(" ");
+                            info.append(jsonresult.getString("greekLname"));
+                            info.append("\nο οποίος φοιτά στο ");
+                            info.append(jsonresult.getString("institution"));
+                            info.append(" με αριθμό μητρώου ");
+                            info.append(jsonresult.getString("studentNumber"));
+                        }else
+                            Toast.makeText(this,getString(R.string.norsult),Toast.LENGTH_LONG).show();
+
                     }else{
                         Toast.makeText(this,getString(R.string.norsult),Toast.LENGTH_LONG).show();
                     }

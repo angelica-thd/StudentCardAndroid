@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -31,11 +30,8 @@ public class Register extends AppCompatActivity {
         // Inflate the layout for this fragment
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_student);
-        Button button = findViewById(R.id.login_st);
-        button.setOnClickListener(v -> {
-            startActivity(new Intent(this, Login_or_Reg.class));
-        });
+        setContentView(R.layout.register_user);
+
         pressed = 0;
         studentAdminRequest = new StudentAdminRequest(this);
         email =  findViewById(R.id.email_st);
@@ -84,6 +80,9 @@ public class Register extends AppCompatActivity {
 
     }
 
+    public void go2login(View view){
+        startActivity(new Intent(this, Login_or_Reg.class));
+    }
     public void onStudentclicked(View view){
         pressed+=1;
         isAdmin = false;
