@@ -122,7 +122,7 @@ public class StudentAdminRequest {
         Log.i("me","here");
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         if (!postUrl.toString().contains("find/student")) postUrl = postUrl.append("find/student");
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                 postUrl.toString(),
                 postData,
                 response -> {
@@ -130,7 +130,8 @@ public class StudentAdminRequest {
                     try {
                         String message = response.getString("message");
                         if(message.contains("Student found")){
-                            editor.putString("isStudent","true").apply();
+                            editor.putInt("isStudent",1).apply();
+
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

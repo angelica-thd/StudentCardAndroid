@@ -55,10 +55,10 @@ public class MainAdmin extends AppCompatActivity {
                 try {
                     JSONObject jsonresult = new JSONObject(result.getContents());
                     if(jsonresult.has("srtoken")){
-                        JSONObject srtoken = new JSONObject().put("srtoken",jsonresult.getString("srtoken")).put("studentNumber","");
+                        JSONObject srtoken = new JSONObject().put("identifier",jsonresult.getString("srtoken"));
                         studentAdminRequest.find_student(srtoken,auth_token);
                         Log.i("srtoken",preferences.getString("isStudent","false"));
-                        if(preferences.getString("isStudent","false").contains("true")){
+                        if(preferences.getInt("isStudent",0) == 1 ){
                             info.setText(getString(R.string.QRresult));
                             info.append("\n\n");
                             info.append(jsonresult.getString("greekFname"));

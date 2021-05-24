@@ -75,7 +75,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
                 for (Iterator<String> it = student.keys(); it.hasNext(); ) {
                     String key = it.next();
 
-                    if (!key.contains("id") && !key.contains("_at") && student.has(key)) {
+                    if (!key.contains("id") && !key.contains("_at") && !key.contains("srtoken") && student.has(key)) {
 
                         infoStr.append(key).append(": ").append(student.get(key)).append("\n");
                     }
@@ -109,8 +109,6 @@ public class MainStudent<photourl> extends AppCompatActivity {
             Bitmap b = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             photo_img.setBackgroundResource(R.drawable.round);
             photo_img.setImageBitmap(b);
-
-
         }else{
           downloadPhoto(photourl);
           setIDphoto();
@@ -135,7 +133,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                     .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
             dm.enqueue(request);
-
+            setIDphoto();
             // Toast.makeText(this, "Image download started.", Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {
             Toast.makeText(this, "Image download failed.", Toast.LENGTH_SHORT).show();
