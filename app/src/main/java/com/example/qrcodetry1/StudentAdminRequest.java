@@ -21,10 +21,11 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class StudentAdminRequest {
     private Context context;
-    private StringBuilder postUrl = new StringBuilder().append("https://3000-sapphire-porcupine-rq946s26.ws-eu07.gitpod.io/");
+    private StringBuilder postUrl = new StringBuilder().append("https://3000-scarlet-kiwi-xzgei96t.ws-eu08.gitpod.io/");
     private String photourl;
 
     public StudentAdminRequest(Context context) {
@@ -38,6 +39,8 @@ public class StudentAdminRequest {
     public void setPhotourl(String photourl) {
         this.photourl = photourl;
     }
+
+    public String getPostURL(){ return  postUrl.toString(); }
 
     // POST /auth/login
     public void auth_login(JSONObject postData) {
@@ -115,10 +118,8 @@ public class StudentAdminRequest {
 
         requestQueue.add(request);
     }
-    public void find_student(JSONObject postData, String auth_token) {
-
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
-        SharedPreferences.Editor editor = preferences.edit();
+    public String find_student(JSONObject postData, String auth_token) {
+        AtomicReference<String> student_token= null;
         Log.i("me","here");
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         if (!postUrl.toString().contains("find/student")) postUrl = postUrl.append("find/student");
@@ -130,14 +131,15 @@ public class StudentAdminRequest {
                     try {
                         String message = response.getString("message");
                         if(message.contains("Student found")){
-                            editor.putInt("isStudent",1).apply();
-
+                            student_token.set(response.getString("student_token"));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 },
-                errorListener) {
+                errorListener)
+
+        {
 
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
@@ -148,19 +150,18 @@ public class StudentAdminRequest {
         };
 
         requestQueue.add(request);
-
+        return student_token.toString();
     }
 
 
     //POST /signup
     public void signup_user(JSONObject postData, Boolean admin) {
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
 
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         SharedPreferences.Editor editor = preferences.edit();
-        Log.i("postData",postData.toString());
-
         if (!postUrl.toString().contains("signup")) postUrl = postUrl.append("signup");
+        Log.i("path",postUrl.toString());
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                 postUrl.toString(),
                 postData,

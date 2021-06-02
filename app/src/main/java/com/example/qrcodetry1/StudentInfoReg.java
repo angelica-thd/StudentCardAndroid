@@ -1,13 +1,10 @@
 package com.example.qrcodetry1;
 
 import android.annotation.SuppressLint;
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
@@ -17,7 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.File;
 import java.io.IOException;
 
 public class StudentInfoReg extends AppCompatActivity {
@@ -70,29 +66,7 @@ public class StudentInfoReg extends AppCompatActivity {
 
     }
 
-    private void downloadImageNew(String filename, String downloadUrlOfImage) {
-        String[] filenamechars = downloadUrlOfImage.split("/");
-        Log.i("filename", filenamechars[filenamechars.length - 1]);
-        filename = filenamechars[filenamechars.length - 1].replace("axd", "jpg");
-        try {
-            DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-            Uri downloadUri = Uri.parse(downloadUrlOfImage);
-            DownloadManager.Request request = new DownloadManager.Request(downloadUri);
 
-            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
-                    .setAllowedOverRoaming(false)
-                    .setTitle(filename)
-                    .addRequestHeader("Cookie", CookieManager.getInstance().getCookie(downloadUrlOfImage))
-                    .addRequestHeader("User-Agent", userAgent)
-                    .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
-                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + filename);
-            dm.enqueue(request);
-            Toast.makeText(this, "Image download started.", Toast.LENGTH_SHORT).show();
-        } catch (Exception e) {
-            Toast.makeText(this, "Image download failed.", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     private class MyWebViewClient extends WebViewClient {
         String dummyURL = "https://www.google.com";

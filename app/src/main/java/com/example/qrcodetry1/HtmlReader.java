@@ -1,7 +1,14 @@
 package com.example.qrcodetry1;
 
+import android.app.DownloadManager;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Base64;
 import android.util.Log;
+import android.webkit.CookieManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -9,6 +16,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -46,15 +55,13 @@ public class HtmlReader {
         return ret;
     }
 
-    public void readHTML(String url,String auth_token, StudentAdminRequest request,Context context) throws  IOException{
+    public void readHTML(String url,String auth_token, StudentAdminRequest request, Context context) throws  IOException{
        // Log.i("url",url);
         new Thread(new Runnable() {
             @Override
             public void run() {
-                StringBuilder stringBuilder = new StringBuilder();
                 Document doc = Jsoup.parse(url);
-               // Log.i("doc",doc.toString());
-                String title = doc.title();
+
 
                 //build json object instead
                 //put try catch on every field to prevent failure
@@ -86,6 +93,7 @@ public class HtmlReader {
                         JSONException e) {
                     e.printStackTrace();
                 }
+
 
                /* String greekFname = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekFirstName").text();
                 String greekLname = doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekLastName").text();
@@ -145,12 +153,59 @@ public class HtmlReader {
 
                 Log.i("student", student_info.toString());
                 request.setPhotourl(doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto").attr("src"));
+                try {
+                    String base64_img = downloadPhoto(context, student_info.getString("photoURL"));
+                    student_info.remove("photoURL");
+                    student_info.put("photoURL", base64_img);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 request.signup_student(auth_token,student_info);
-
-
             }
         }).start();
 
+    }
+
+
+    private String downloadPhoto(Context context,String downloadUrlOfImage){
+        String encodedImage = null;
+        Log.i("download","here");
+        try {
+            String cookie =  CookieManager.getInstance().getCookie(downloadUrlOfImage);
+            DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+            Uri downloadUri = Uri.parse(downloadUrlOfImage);
+            DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+                    .setAllowedOverRoaming(false)
+                    .setTitle("photo_id")
+                    .addRequestHeader("Cookie",cookie)
+                    .addRequestHeader("User-Agent", "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}")
+                    .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
+            dm.enqueue(request);
+            Log.i("download","image downloaded");
+        } catch (Exception ex) {
+            Log.i("download","image not downloaded");
+        }
+
+        String pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
+        File imgFile = new  File(pictures+"/photo_id.jpg");
+        Log.i("path",imgFile.getAbsolutePath());
+        if(imgFile.exists()) {
+            Bitmap b = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            Log.i("download","found photo");
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            b.compress(Bitmap.CompressFormat.JPEG, 100, baos); // bm is the bitmap object
+            byte[] byteArrayImage = baos.toByteArray();
+            encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
+            Log.i("base64", encodedImage);
+        }else{
+            downloadPhoto(context,downloadUrlOfImage);
+           Log.i("download","not found photo");
+        }
+        return encodedImage;
     }
 
 }

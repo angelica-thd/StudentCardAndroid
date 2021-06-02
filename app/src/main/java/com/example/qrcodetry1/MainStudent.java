@@ -1,21 +1,16 @@
 package com.example.qrcodetry1;
 
-import android.app.DownloadManager;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.util.Base64;
 import android.util.Log;
-import android.webkit.CookieManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +18,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.Iterator;
 
 public class MainStudent<photourl> extends AppCompatActivity {
@@ -67,10 +61,12 @@ public class MainStudent<photourl> extends AppCompatActivity {
             try {
                 JSONObject student = new JSONObject(preferences.getString("student_info", "student info"));
                 photourl = student.getString("photoURL");
+                byte[] decodedString = Base64.decode(photourl, Base64.DEFAULT);
+                Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                photo_img.setBackgroundResource(R.drawable.round);
+                photo_img.setImageBitmap(decodedByte);
                 student.remove("photoURL");
                 Log.i("photourl",photourl);
-                //new DownloadImage().execute(photourl);
-                setIDphoto();
 
                 for (Iterator<String> it = student.keys(); it.hasNext(); ) {
                     String key = it.next();
@@ -80,7 +76,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
                         infoStr.append(key).append(": ").append(student.get(key)).append("\n");
                     }
                 }
-                qr.generate_QR(this, student.toString(), QRimg2);
+                qr.generate_QR(this, student.getString("srtoken"), QRimg2);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -101,7 +97,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
     }
 
 
-    private void setIDphoto() {
+    /*private void setIDphoto() {
         String pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
         File imgFile = new  File(pictures+"/photo_id.jpg");
         Log.i("path",imgFile.getAbsolutePath());
@@ -109,10 +105,11 @@ public class MainStudent<photourl> extends AppCompatActivity {
             Bitmap b = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             photo_img.setBackgroundResource(R.drawable.round);
             photo_img.setImageBitmap(b);
+            Toast.makeText(this,"found photo",Toast.LENGTH_LONG).show();
         }else{
           downloadPhoto(photourl);
           setIDphoto();
-          Toast.makeText(this, "not found photo", Toast.LENGTH_LONG).show();
+         //Toast.makeText(this, "not found photo", Toast.LENGTH_LONG).show();
         }
 
 
@@ -120,6 +117,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
 
     private void downloadPhoto(String downloadUrlOfImage){
         try {
+            String cookie =  CookieManager.getInstance().getCookie(downloadUrlOfImage);
             DownloadManager dm = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
             Uri downloadUri = Uri.parse(downloadUrlOfImage);
             DownloadManager.Request request = new DownloadManager.Request(downloadUri);
@@ -127,16 +125,16 @@ public class MainStudent<photourl> extends AppCompatActivity {
             request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
                     .setAllowedOverRoaming(false)
                     .setTitle("photo_id")
-                    .addRequestHeader("Cookie", CookieManager.getInstance().getCookie(downloadUrlOfImage))
+                    .addRequestHeader("Cookie",cookie)
                     .addRequestHeader("User-Agent", "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}")
                     .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
                     .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                     .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
             dm.enqueue(request);
             setIDphoto();
-            // Toast.makeText(this, "Image download started.", Toast.LENGTH_SHORT).show();
+             Toast.makeText(this, "Image download started.", Toast.LENGTH_SHORT).show();
         } catch (Exception ex) {
             Toast.makeText(this, "Image download failed.", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 }
