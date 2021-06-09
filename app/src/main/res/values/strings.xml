@@ -7,10 +7,23 @@
     <string name="settings" translatable="false">Ρυθμίσεις</string>
     <string name="schedule" translatable="false">Πρόγραμμα</string>
     <string name="grades" translatable="false">Βαθμολογίες</string>
-    <string name="search" translatable="false">Αναζήτηση Φοιτητή</string>
+    <string name="search" translatable="false">Αναζήτηση Φοιτητή με Αριθμό Μητρώου</string>
     <string name="welcome_msg" translatable="false">Ηλεκτρονικό Πάσο</string>
     <string name="welcome_descr" translatable="false">Με το πάσο σου, στο κινητό σου!</string>
 
+
+    <!--information -->
+    <string name="fullName">Ονοματεπώνυμο </string>
+    <string name="student_cred">Στοιχεία Φοιτητή </string>
+    <string name="school_cred">Στοιχεία Ιδρύματος </string>
+    <string name="studentShipType">Ακ. Ιδιότητα </string>
+    <string name="studentNumber">Αριθμός Μητρώου </string>
+    <string name="institution">Ίδρυμα </string>
+    <string name="university">Σχολή </string>
+    <string name="address">Τόπος Κατοικίας</string>
+    <string name="department">Τμήμα</string>
+    <string name="entryDate">Ημερομηνία Εγγραφής</string>
+    <string name="academicAddress">Διεύθυνση Ιδρύματος</string>
 
     <!-- r text -->
     <string name="student_user_reg">Εγγραφή Χρήστη</string>
@@ -21,7 +34,7 @@
     <string name="logout">Αποσύνδεση</string>
     <string name="scan">Πατήστε για σάρωση του QR κωδικού</string>
     <string name="searchbByNum">Αριθμός Μητρώου Φοιτητή: </string>
-    <string name="searchactivity">Αναζήτηση Φοιτητή</string>
+
     <string name="norsult">Δε βρέθηκε ο φοιτητής. Προσπαθήστε ξανά.</string>
     <string name="usertype">Επιλέξτε πρώτα τον τύπο χρήστη με τον οποίο θέλετε να εγγραφείτε.</string>
     <string name="password">Κωδικός Πρόσβασης</string>
@@ -43,10 +56,7 @@
     <string name="photo">Εικόνα Ταυτοποίησης</string>
     <string name="app_name">Ακαδημαϊκή Ταυτότητα</string>
     <string name="phone">Τηλέφωνο Επικοινωνίας</string>
-    <string name="address">Τόπος Κατοικίας</string>
-    <string name="university">Πανεπιστήμιο</string>
-    <string name="department">Τμήμα</string>
-    <string name="entry_date">Ημερομηνία Εγγραφήε</string>
+
     <string name="hello_world" translatable="false">Hello Round World!</string>
     <string name="signup">Δεν έχετε λογαριασμό;\nΚάντε εγγραφή.</string>
     <string name="go2login">Έχετε ήδη λογαριασμό;\nΣυνδεθείτε.</string>
@@ -56,4 +66,5 @@
     <string name="title_activity_student_signup">StudentSignup</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_q_r_result_">QR_result_Activity</string>
 </resources>

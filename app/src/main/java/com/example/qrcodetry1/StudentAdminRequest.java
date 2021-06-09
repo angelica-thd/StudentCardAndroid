@@ -21,11 +21,10 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class StudentAdminRequest {
     private Context context;
-    private StringBuilder postUrl = new StringBuilder().append("https://3000-scarlet-kiwi-xzgei96t.ws-eu08.gitpod.io/");
+    private StringBuilder postUrl = new StringBuilder().append("https://3000-pink-dragon-w0hlrpcb.ws-eu08.gitpod.io/");
     private String photourl;
 
     public StudentAdminRequest(Context context) {
@@ -108,6 +107,8 @@ public class StudentAdminRequest {
                 },
                 errorListener) {
 
+
+
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
@@ -118,28 +119,18 @@ public class StudentAdminRequest {
 
         requestQueue.add(request);
     }
-    public String find_student(JSONObject postData, String auth_token) {
-        AtomicReference<String> student_token= null;
-        Log.i("me","here");
+
+    //GET /auth/logout
+    public void logout(String auth_token) {
+        StringBuilder postUrl = new StringBuilder().append("https://3000-pink-dragon-w0hlrpcb.ws-eu08.gitpod.io/");
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        if (!postUrl.toString().contains("find/student")) postUrl = postUrl.append("find/student");
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
+        if (!postUrl.toString().contains("auth/logout")) postUrl = postUrl.append("auth/logout");
+        Log.i("url",postUrl.toString());
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
                 postUrl.toString(),
-                postData,
-                response -> {
-                    Log.i("response", response.toString());
-                    try {
-                        String message = response.getString("message");
-                        if(message.contains("Student found")){
-                            student_token.set(response.getString("student_token"));
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                },
-                errorListener)
-
-        {
+                null,
+                response -> Log.i("logout response", response.toString()) ,
+                errorListener) {
 
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
@@ -150,8 +141,9 @@ public class StudentAdminRequest {
         };
 
         requestQueue.add(request);
-        return student_token.toString();
     }
+
+
 
 
     //POST /signup
@@ -245,38 +237,38 @@ public class StudentAdminRequest {
                     Log.i("Errorresponse", "Error Response code: " + error.networkResponse.statusCode);
                     try {
                         errorMessage = new String(error.networkResponse.data, "UTF-8");
-                        Log.i("Errorresponse", "Error Response message: " + errorMessage);
+                        Log.i("Errorresponse", "Error Response message: " + errorMessage +", "+ error.networkResponse.data);
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
 
-                    switch (error.networkResponse.statusCode) {
-                        case 404:
-                            Toast.makeText(context, R.string.checkInternet, Toast.LENGTH_LONG).show();
+                    if (error.networkResponse.statusCode == 404) {
+                        Toast.makeText(context, R.string.checkInternet, Toast.LENGTH_LONG).show();
+                    }
+                    else if (error.networkResponse.statusCode == 401){
+                        Toast.makeText(context, R.string.invalid_creds, Toast.LENGTH_LONG).show();
+                    }
+                    if (error.networkResponse.statusCode == 422) {
+                        if (errorMessage.contains("a user with this email or username already exists")) {
+                            Toast.makeText(context, R.string.useralreadyexists, Toast.LENGTH_LONG).show();
+                        }
+                        else if (errorMessage.contains("a student with this student number already exists")) {
+                            Toast.makeText(context, R.string.stalreadyexists, Toast.LENGTH_LONG).show();
+                        }else if (errorMessage.contains("Student was not found")) {
+                            Toast.makeText(context, R.string.norsult, Toast.LENGTH_LONG).show();
+                        } else if (errorMessage.contains("Missing token")) {
+                            Toast.makeText(context, R.string.authorization, Toast.LENGTH_LONG).show();
+                        } else if (errorMessage.contains("Validation failed")) {
+                            if (errorMessage.contains("Email is invalid"))
+                                Toast.makeText(context, R.string.invalidEmail, Toast.LENGTH_LONG).show();
 
-                        case 401:
-                            Toast.makeText(context, R.string.invalid_creds, Toast.LENGTH_LONG).show();
+                            else if (errorMessage.contains("Password confirmation doesn't match Password"))
+                                Toast.makeText(context, R.string.invalid_pass, Toast.LENGTH_LONG).show();
 
-                        case 422:
-                            if (errorMessage.contains("a user with this email or username already exists")) {
-                                Toast.makeText(context, R.string.useralreadyexists, Toast.LENGTH_LONG).show();
-                            }
-                            else if (errorMessage.contains("a student with this student number already exists")){
-                                Toast.makeText(context, R.string.stalreadyexists, Toast.LENGTH_LONG).show();
-                            }
-                            else if (errorMessage.contains("Missing token")) {
-                                Toast.makeText(context, R.string.authorization, Toast.LENGTH_LONG).show();
-                            }
-                            else if (errorMessage.contains("Validation failed")) {
-                               if(errorMessage.contains("Email is invalid"))
-                                    Toast.makeText(context, R.string.invalidEmail, Toast.LENGTH_LONG).show();
-
-                                else if (errorMessage.contains("Password confirmation doesn't match Password"))
-                                    Toast.makeText(context, R.string.invalid_pass, Toast.LENGTH_LONG).show();
-
-                                Toast.makeText(context, R.string.validationfail, Toast.LENGTH_LONG).show();
-                            }
-                        case 500:
+                            Toast.makeText(context, R.string.validationfail, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    if (error.networkResponse.statusCode == 500){
                             Toast.makeText(context, R.string.error500, Toast.LENGTH_LONG).show();
                     }
                 }

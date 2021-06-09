@@ -11,21 +11,25 @@
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/bottombar"
+        android:layout_height="850dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottombaradmin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+
+
+
 
 
             <ImageView
                 android:id="@+id/back"
-                android:layout_width="345dp"
-                android:layout_height="581dp"
+                android:layout_width="300dp"
+                android:layout_height="600dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:alpha="0.4"
@@ -37,7 +41,50 @@
                 app:srcCompat="@drawable/rectangled"
                 app:tint="@color/white" />
 
+            <TextView
+                android:id="@+id/searchlabel2"
+                android:layout_width="277dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="48dp"
+                android:text="@string/search"
+                android:textColor="#3C3C3C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/back"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/back"
+                app:layout_constraintTop_toBottomOf="@id/scanQR" />
 
+            <EditText
+                android:id="@+id/searchStudent2"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#3C3C3C"
+                android:textColorLink="@color/contrast"
+                app:layout_constraintBottom_toBottomOf="@+id/back"
+                app:layout_constraintEnd_toEndOf="@+id/back"
+                app:layout_constraintStart_toStartOf="@+id/back"
+                app:layout_constraintTop_toBottomOf="@+id/searchlabel2"
+                app:layout_constraintVertical_bias="0.056" />
+
+            <ImageButton
+                android:id="@+id/search2"
+                android:layout_width="280dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/qrbutton"
+                android:onClick="search_by_studentNumber"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/back"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintStart_toStartOf="@id/back"
+                app:layout_constraintTop_toBottomOf="@+id/searchStudent2"
+                app:srcCompat="@drawable/ic_baseline_arrow_forward_24" />
 
             <TextView
                 android:id="@+id/credRes"
@@ -51,7 +98,7 @@
                 android:textSize="24dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/back"
-                app:layout_constraintEnd_toStartOf="@+id/photo_id"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -67,44 +114,31 @@
                 android:textColor="#3C3C3C"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/QRimg2"
+                app:layout_constraintBottom_toTopOf="@+id/textView13"
                 app:layout_constraintEnd_toEndOf="@+id/back"
-                app:layout_constraintHorizontal_bias="0.121"
+                app:layout_constraintHorizontal_bias="0.218"
                 app:layout_constraintStart_toStartOf="@+id/back"
                 app:layout_constraintTop_toTopOf="@+id/back" />
 
+
             <ImageButton
                 android:id="@+id/scanQR"
-                android:layout_width="256dp"
-                android:layout_height="256dp"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/ic_outline_qr_code_scanner_24"
-                app:layout_constraintBottom_toTopOf="@+id/QRresult"
+                app:layout_constraintBottom_toBottomOf="@+id/back"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/user" />
-
-            <TextView
-                android:id="@+id/QRresult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:gravity="center_horizontal"
-                android:textColor="#3C3C3C"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/back"
-                app:layout_constraintEnd_toEndOf="@+id/back"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="@+id/back"
-                app:layout_constraintTop_toBottomOf="@+id/scanQR"
-                app:layout_constraintVertical_bias="0.193" />
+                app:layout_constraintTop_toBottomOf="@+id/user"
+                app:layout_constraintVertical_bias="0.366" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
                 android:text="@string/scan"
                 android:textColor="#3C3C3C"
@@ -135,5 +169,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottombar_admin" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

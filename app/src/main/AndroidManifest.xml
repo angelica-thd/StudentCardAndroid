@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.qrcodetry1">
 
+
+
     <supports-screens
         android:largeScreens="true"
         android:normalScreens="true"
@@ -25,20 +27,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QrCodeTry1.NoActionBar">
+
+
+
         <activity android:name=".WelcomeActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchStudent" />
         <activity android:name=".MainAdmin" />
         <activity android:name=".StudentInfoReg" />
-
         <activity android:name=".Settings" />
-
         <activity android:name=".MainStudent" />
+
+        <activity
+            android:name=".QR_result_Activity"
+            android:label="@string/title_activity_q_r_result_"/>
         <activity android:name=".Register" />
         <activity
             android:name=".CaptureAct"
@@ -46,7 +52,7 @@
             android:stateNotNeeded="true"
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".Login_or_Reg"></activity>
+        <activity android:name=".Login_or_Reg" />
     </application>
 
 </manifest>

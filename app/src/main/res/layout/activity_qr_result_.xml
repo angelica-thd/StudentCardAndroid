@@ -34,6 +34,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/credRes" />
 
+    <ImageButton
+        android:id="@+id/goback"
+        android:layout_width="280dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/qrbutton"
+        android:tint="@color/white"
+        android:onClick="goBack"
+        app:layout_constraintEnd_toEndOf="@id/back"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@id/back"
+        app:layout_constraintTop_toBottomOf="@+id/academic_address_txt2"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
     <TextView
         android:id="@+id/credRes"
         android:layout_width="wrap_content"
@@ -54,7 +68,7 @@
 
 
     <ImageView
-        android:id="@+id/identifier"
+        android:id="@+id/identifier2"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="96dp"
@@ -64,25 +78,12 @@
         app:layout_constraintTop_toTopOf="@+id/back"
         tools:src="@tools:sample/avatars" />
 
-    <ImageButton
-        android:id="@+id/showQR"
-        android:layout_width="150dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/qrbutton"
-        android:tint="@color/white"
-        app:layout_constraintEnd_toEndOf="@id/back"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="@id/back"
-        app:layout_constraintTop_toBottomOf="@+id/identifier"
-        app:srcCompat="@drawable/ic_twotone_qr_code_24" />
-
     <TextView
-        android:id="@+id/entryDate"
+        android:id="@+id/entryDate2"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:text="@string/entryDate"
         android:textAlignment="center"
@@ -92,10 +93,10 @@
         app:layout_constraintEnd_toEndOf="@id/back"
         app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="@id/back"
-        app:layout_constraintTop_toBottomOf="@+id/showQR" />
+        app:layout_constraintTop_toBottomOf="@+id/identifier2" />
 
     <TextView
-        android:id="@+id/entryDate_txt"
+        android:id="@+id/entryDate_txt2"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -108,10 +109,10 @@
         app:layout_constraintEnd_toEndOf="@id/back"
         app:layout_constraintHorizontal_bias="0.905"
         app:layout_constraintStart_toStartOf="@id/back"
-        app:layout_constraintTop_toBottomOf="@+id/entryDate" />
+        app:layout_constraintTop_toBottomOf="@+id/entryDate2" />
 
     <TextView
-        android:id="@+id/academic_address"
+        android:id="@+id/academic_address2"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -125,10 +126,10 @@
         app:layout_constraintEnd_toEndOf="@id/back"
         app:layout_constraintHorizontal_bias="0.952"
         app:layout_constraintStart_toStartOf="@id/back"
-        app:layout_constraintTop_toBottomOf="@+id/entryDate_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/entryDate_txt2" />
 
     <TextView
-        android:id="@+id/academic_address_txt"
+        android:id="@+id/academic_address_txt2"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -141,14 +142,13 @@
         app:layout_constraintEnd_toEndOf="@id/back"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="@id/back"
-        app:layout_constraintTop_toBottomOf="@+id/academic_address" />
+        app:layout_constraintTop_toBottomOf="@+id/academic_address2" />
 
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="140dp"
         android:layout_height="500dp"
-        app:layout_constraintBottom_toBottomOf="@id/bottombar"
-        app:layout_constraintEnd_toStartOf="@id/identifier"
+        app:layout_constraintEnd_toStartOf="@id/identifier2"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="@id/back"
         app:layout_constraintTop_toBottomOf="@id/cred"
@@ -160,7 +160,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/institution_txt"
+                android:id="@+id/institution_txt2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -174,10 +174,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/institution" />
+                app:layout_constraintTop_toBottomOf="@id/institution2" />
 
             <TextView
-                android:id="@+id/studentNumber_txt"
+                android:id="@+id/studentNumber_txt2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -191,10 +191,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/studentNumber" />
+                app:layout_constraintTop_toBottomOf="@id/studentNumber2" />
 
             <TextView
-                android:id="@+id/address_txt"
+                android:id="@+id/address_txt2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -208,10 +208,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/address" />
+                app:layout_constraintTop_toBottomOf="@id/address2" />
 
             <TextView
-                android:id="@+id/fullname"
+                android:id="@+id/fullname2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -227,7 +227,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/studentshipType_txt"
+                android:id="@+id/studentshipType_txt2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -241,10 +241,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/studentshipType" />
+                app:layout_constraintTop_toBottomOf="@id/studentshipType2" />
 
             <TextView
-                android:id="@+id/address"
+                android:id="@+id/address2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -258,10 +258,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/department_txt" />
+                app:layout_constraintTop_toBottomOf="@id/department_txt2" />
 
             <TextView
-                android:id="@+id/fullname_txt"
+                android:id="@+id/fullname_txt2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -275,10 +275,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fullname" />
+                app:layout_constraintTop_toBottomOf="@+id/fullname2" />
 
             <TextView
-                android:id="@+id/studentNumber"
+                android:id="@+id/studentNumber2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -293,10 +293,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/studentshipType_txt" />
+                app:layout_constraintTop_toBottomOf="@id/studentshipType_txt2" />
 
             <TextView
-                android:id="@+id/department"
+                android:id="@+id/department2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -311,10 +311,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/institution_txt" />
+                app:layout_constraintTop_toBottomOf="@id/institution_txt2" />
 
             <TextView
-                android:id="@+id/department_txt"
+                android:id="@+id/department_txt2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -328,10 +328,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/department" />
+                app:layout_constraintTop_toBottomOf="@id/department2" />
 
             <TextView
-                android:id="@+id/studentshipType"
+                android:id="@+id/studentshipType2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -346,10 +346,10 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/fullname_txt" />
+                app:layout_constraintTop_toBottomOf="@id/fullname_txt2" />
 
             <TextView
-                android:id="@+id/institution"
+                android:id="@+id/institution2"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -363,39 +363,21 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/studentNumber_txt" />
+                app:layout_constraintTop_toBottomOf="@id/studentNumber_txt2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottombar"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="bottom"
-        android:layout_margin="0dp"
-        android:layout_marginBottom="0dp"
-        android:background="@drawable/bottombar"
-        app:elevation="2dp"
-        app:itemIconSize="25dp"
-        app:itemIconTint="@drawable/items_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottombar_student" />
 
     <TextView
         android:id="@+id/cred"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="User type"
+        android:text="Φοιτητής"
         android:textAlignment="viewStart"
         android:textColor="#3C3C3C"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/identifier"
+        app:layout_constraintBottom_toTopOf="@+id/identifier2"
         app:layout_constraintEnd_toEndOf="@+id/back"
         app:layout_constraintHorizontal_bias="0.147"
         app:layout_constraintStart_toStartOf="@+id/back"
