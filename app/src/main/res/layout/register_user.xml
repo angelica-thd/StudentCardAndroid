@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:fitsSystemWindows="true"
     android:orientation="vertical"
     android:background="@drawable/rectangled_back"
     android:alpha="0.95"
@@ -28,8 +29,8 @@
 
             <ImageView
                 android:id="@+id/back"
-                android:layout_width="345dp"
-                android:layout_height="500dp"
+                android:layout_width="300dp"
+                android:layout_height="550dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="40dp"
@@ -56,7 +57,7 @@
 
             <EditText
                 android:id="@+id/email_st"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
@@ -70,7 +71,7 @@
 
             <EditText
                 android:id="@+id/username_st"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_account_circle_24"
@@ -84,9 +85,9 @@
 
             <EditText
                 android:id="@+id/fname_st"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="50dp"
                 android:drawableLeft="@drawable/ic_baseline_face_24"
                 android:ems="10"
                 android:textColor="#3C3C3C"
@@ -97,7 +98,7 @@
 
             <EditText
                 android:id="@+id/pass_st"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_password_24"
@@ -111,13 +112,13 @@
 
             <EditText
                 android:id="@+id/pass_conf_st"
-                android:layout_width="300dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_password_24"
                 android:ems="10"
-                android:textColor="#3C3C3C"
                 android:inputType="textPassword"
+                android:textColor="#3C3C3C"
                 app:layout_constraintEnd_toEndOf="@id/back"
                 app:layout_constraintHorizontal_bias="0.511"
                 app:layout_constraintStart_toStartOf="@id/back"
@@ -214,14 +215,15 @@
 
             <Button
                 android:id="@+id/login_st"
-                android:layout_width="305dp"
-                android:layout_height="44dp"
+                android:layout_width="285dp"
+                android:layout_height="35dp"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/rectangled"
                 android:text="@string/login"
                 android:textColor="@color/white"
                 android:onClick="go2login"
                 app:backgroundTint="#044d8c"
+                android:textSize="12dp"
                 app:layout_constraintBottom_toBottomOf="@+id/backdown"
                 app:layout_constraintEnd_toEndOf="@+id/backdown"
                 app:layout_constraintHorizontal_bias="0.45"
@@ -232,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_baseline_arrow_forward_24"
                 app:backgroundTint="#044d8c"
@@ -249,10 +251,10 @@
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="@+id/back"
                 app:layout_constraintEnd_toStartOf="@+id/admin_fab"
-                app:layout_constraintHorizontal_bias="0.113"
+                app:layout_constraintHorizontal_bias="0.131"
                 app:layout_constraintStart_toStartOf="@+id/back"
                 app:layout_constraintTop_toBottomOf="@+id/pass_conf_st"
-                app:layout_constraintVertical_bias="0.466"
+                app:layout_constraintVertical_bias="0.876"
                 app:srcCompat="@drawable/ic_outline_school_24"
                 tools:ignore="OnClick" />
 
@@ -265,12 +267,28 @@
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="@+id/back"
                 app:layout_constraintEnd_toStartOf="@+id/admin_fab"
-                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintHorizontal_bias="0.297"
                 app:layout_constraintStart_toEndOf="@+id/student"
                 app:layout_constraintTop_toBottomOf="@+id/pass_conf_st"
+                app:layout_constraintVertical_bias="0.876"
                 app:srcCompat="@drawable/ic_outline_qr_code_scanner_24"
-                tools:ignore="OnClick"
-                app:tint="@color/white" />
+                app:tint="@color/white"
+                tools:ignore="OnClick" />
+
+            <TextView
+                android:id="@+id/pass_req"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/pass_req"
+                android:textColor="#C81010"
+                android:textSize="12sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/admin"
+                app:layout_constraintEnd_toEndOf="@+id/back"
+                app:layout_constraintStart_toStartOf="@+id/back"
+                app:layout_constraintTop_toBottomOf="@+id/pass_conf_st" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

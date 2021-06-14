@@ -2,6 +2,7 @@ package com.example.qrcodetry1;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,7 +17,6 @@ import org.json.JSONObject;
 
 public class Login_or_Reg extends AppCompatActivity {
     private EditText pass, email;
-    private TextView emailtxt, passtxt;
     private StudentAdminRequest studentAdminRequest;
 
     @Override
@@ -26,21 +26,9 @@ public class Login_or_Reg extends AppCompatActivity {
         studentAdminRequest = new StudentAdminRequest(this);
 
         pass = findViewById(R.id.password);
-        passtxt = findViewById(R.id.passtxtstudent);
         email = findViewById(R.id.email_logreg);
-        emailtxt = findViewById(R.id.emailtxtstudent);
-
         pass.setText("");
         email.setText("");
-
-
-        /*
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.ic_baseline_badge_24);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().hide();*/
-
-
 
     }
 
@@ -57,16 +45,19 @@ public class Login_or_Reg extends AppCompatActivity {
             log_params.put("password",pass.getText().toString());
             studentAdminRequest.auth_login(log_params);
         }else {
-            email.setHintTextColor(R.color.red);
-            pass.setHintTextColor(R.color.red);
-            Toast.makeText(this, R.string.blankField, Toast.LENGTH_SHORT).show();
+            Toast toast = Toast.makeText(this, R.string.blankField, Toast.LENGTH_SHORT);
+            View v = toast.getView();
+            v.setBackgroundResource(R.drawable.error_toast);
+            TextView t = (TextView) toast.getView().findViewById(android.R.id.message);
+            t.setTextColor(Color.RED);
+            toast.show();
         }
     }
 
 
     public void send2signup(View view){
        startActivity(new Intent(this,Register.class));
-    } //RegUser.class
+    }
 
 
 

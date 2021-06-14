@@ -3,8 +3,8 @@
     <string name="title_activity_reg_user" translatable="false">RegUser</string>
     <string name="tab_student" translatable="false">Φοιτητής</string>
     <string name="tab_admin" translatable="false">Διαχειριστής</string>
-    <string name="home" translatable="false">Πάσο</string>
-    <string name="settings" translatable="false">Ρυθμίσεις</string>
+    <string name="home" translatable="false">Αρχική</string>
+    <string name="settings" translatable="false">Προφίλ</string>
     <string name="schedule" translatable="false">Πρόγραμμα</string>
     <string name="grades" translatable="false">Βαθμολογίες</string>
     <string name="search" translatable="false">Αναζήτηση Φοιτητή με Αριθμό Μητρώου</string>
@@ -13,58 +13,62 @@
 
 
     <!--information -->
-    <string name="fullName">Ονοματεπώνυμο </string>
-    <string name="student_cred">Στοιχεία Φοιτητή </string>
-    <string name="school_cred">Στοιχεία Ιδρύματος </string>
-    <string name="studentShipType">Ακ. Ιδιότητα </string>
-    <string name="studentNumber">Αριθμός Μητρώου </string>
-    <string name="institution">Ίδρυμα </string>
-    <string name="university">Σχολή </string>
-    <string name="address">Τόπος Κατοικίας</string>
-    <string name="department">Τμήμα</string>
-    <string name="entryDate">Ημερομηνία Εγγραφής</string>
-    <string name="academicAddress">Διεύθυνση Ιδρύματος</string>
+    <string name="fullName" translatable="false">Ονοματεπώνυμο </string>
+    <string name="student_cred" translatable="false">Στοιχεία Φοιτητή </string>
+    <string name="school_cred" translatable="false">Στοιχεία Ιδρύματος </string>
+    <string name="studentShipType" translatable="false">Ακ. Ιδιότητα </string>
+    <string name="studentNumber" translatable="false">Αριθμός Μητρώου </string>
+    <string name="institution" translatable="false">Ίδρυμα </string>
+    <string name="university" translatable="false">Σχολή </string>
+    <string name="address" translatable="false">Τόπος Κατοικίας</string>
+    <string name="department" translatable="false">Τμήμα</string>
+    <string name="entryDate" translatable="false">Ημερομηνία Εγγραφής</string>
+    <string name="academicAddress" translatable="false">Διεύθυνση Ιδρύματος</string>
 
     <!-- r text -->
-    <string name="student_user_reg">Εγγραφή Χρήστη</string>
-    <string name="student_reg">Εγγραφή Φοιτητή</string>
-    <string name="admin_reg">Εγγραφή Διαχειριστή</string>
-    <string name="register">Εγγραφή</string>
-    <string name="login">Σύνδεση</string>
-    <string name="logout">Αποσύνδεση</string>
-    <string name="scan">Πατήστε για σάρωση του QR κωδικού</string>
-    <string name="searchbByNum">Αριθμός Μητρώου Φοιτητή: </string>
+    <string name="student_user_reg" translatable="false">Εγγραφή Χρήστη</string>
+    <string name="student_reg" translatable="false">Εγγραφή Φοιτητή</string>
+    <string name="admin_reg" translatable="false">Εγγραφή Διαχειριστή</string>
+    <string name="register" translatable="false">Εγγραφή</string>
+    <string name="login" translatable="false">Σύνδεση</string>
+    <string name="logout" translatable="false">Αποσύνδεση</string>
+    <string name="scan" translatable="false">Πατήστε για σάρωση του QR κωδικού</string>
+    <string name="searchbByNum" translatable="false">Αριθμός Μητρώου Φοιτητή: </string>
 
-    <string name="norsult">Δε βρέθηκε ο φοιτητής. Προσπαθήστε ξανά.</string>
-    <string name="usertype">Επιλέξτε πρώτα τον τύπο χρήστη με τον οποίο θέλετε να εγγραφείτε.</string>
-    <string name="password">Κωδικός Πρόσβασης</string>
-    <string name="password_conf">Επιβεβαίωση Κωδικού</string>
-    <string name="invalid_creds">Λάθος κωδικός ή λάθος email</string>
-    <string name="invalid_pass">Οι κωδικοί πρόσβασης πρέπει να είναι ίδιοι.</string>
-    <string name="checkInternet">Ελέγξτε τη σύνδεσή σας στο δίκτυο.</string>
-    <string name="blankField">Συμπληρώστε όλα τα πεδία!</string>
-    <string name="error500">Το σύστημα δεν ανταποκρίνεται. Προσπαθήστε πάλι αργότερα.</string>
-    <string name="authorization">Πρέπει να συνδεθείτε σε λογαριασμό πρώτα.</string>
-    <string name="validationfail">Παρακαλώ, ελέγξτε ότι έχετε συμπληρώσει όλα τα πεδία πρώτα.</string>
-    <string name="invalidEmail">Παρακαλώ, εισάγετε ένα σωστό email.</string>
-    <string name="useralreadyexists">Αυτό το email ή/και το username χρησιμοποιούνται ήδη. \nΠαρακαλώ, χρησιμοποιείστε διαφορετικά.</string>
-    <string name="stalreadyexists">Υπάρχει ήδη λογαριασμός φοιτητή με αυτά τα στοιχεία.</string>
-    <string name="email">E-mail</string>
-    <string name="username">Όνομα Χρήστη</string>
-    <string name="username_id">Αριθμός Μητρώου</string>
-    <string name="fullname">Ονοματεπώνυμο</string>
-    <string name="photo">Εικόνα Ταυτοποίησης</string>
-    <string name="app_name">Ακαδημαϊκή Ταυτότητα</string>
-    <string name="phone">Τηλέφωνο Επικοινωνίας</string>
+    <string name="norsult" translatable="false">Δε βρέθηκε ο φοιτητής. Προσπαθήστε ξανά.</string>
+    <string name="usertype" translatable="false">Επιλέξτε πρώτα τον τύπο χρήστη με τον οποίο θέλετε να εγγραφείτε.</string>
+    <string name="password" translatable="false">Κωδικός Πρόσβασης</string>
+    <string name="password_conf" translatable="false">Επιβεβαίωση Κωδικού</string>
+    <string name="invalid_creds" translatable="false">Λάθος κωδικός ή λάθος email</string>
+    <string name="invalid_pass" translatable="false">Οι κωδικοί πρόσβασης πρέπει να είναι ίδιοι.</string>
+    <string name="checkInternet" translatable="false">Ελέγξτε τη σύνδεσή σας στο δίκτυο.</string>
+    <string name="blankField" translatable="false">Συμπληρώστε όλα τα πεδία!</string>
+    <string name="error500" translatable="false">Το σύστημα δεν ανταποκρίνεται. Προσπαθήστε πάλι αργότερα.</string>
+    <string name="authorization" translatable="false">Πρέπει να συνδεθείτε σε λογαριασμό πρώτα.</string>
+    <string name="validationfail" translatable="false">Παρακαλώ, ελέγξτε ότι έχετε συμπληρώσει όλα τα πεδία πρώτα.</string>
+    <string name="invalidEmail" translatable="false">Παρακαλώ, εισάγετε ένα σωστό email.</string>
+    <string name="securePass" translatable="false">Παρακαλώ, εισάγετε έναν πιο ασφαλή κωδικό.</string>
+    <string name="pass_req" translatable="false">Ο κωδικός πρόσβασης  πρέπει να έχει τουλάχιστον 8 χαρακτήρες, 1 κεφαλαίο γράμμα και 1 μικρό.</string>
+    <string name="useralreadyexists" translatable="false">Αυτό το email ή/και το username χρησιμοποιούνται ήδη. \nΠαρακαλώ, χρησιμοποιείστε διαφορετικά.</string>
+    <string name="stalreadyexists" translatable="false">Υπάρχει ήδη λογαριασμός φοιτητή με αυτά τα στοιχεία.</string>
+    <string name="email" translatable="false">E-mail</string>
+    <string name="username" translatable="false">Όνομα Χρήστη</string>
+    <string name="username_id" translatable="false">Αριθμός Μητρώου</string>
+    <string name="fullname" translatable="false">Ονοματεπώνυμο</string>
+    <string name="photo" translatable="false">Εικόνα Ταυτοποίησης</string>
+    <string name="app_name">Πάσο</string>
+    <string name="app_name2" translatable="false">Ακαδημαϊκή Ταυτότητα</string>
+    <string name="phone" translatable="false">Τηλέφωνο Επικοινωνίας</string>
 
-    <string name="hello_world" translatable="false">Hello Round World!</string>
-    <string name="signup">Δεν έχετε λογαριασμό;\nΚάντε εγγραφή.</string>
-    <string name="go2login">Έχετε ήδη λογαριασμό;\nΣυνδεθείτε.</string>
-    <string name="professional" translatable="false">Δεν είσαι φοιτητής;\nΣυνδέσου στον επαγγελματικό λογαριασμό σου εδώ.</string>
-    <string name="photo_info" translatable="false">Επιλέξτε μια φωτογραφία η οποία έχει\n φωτεινό φόντο,\n εμφανή τα χαρακτηριστικά προσώπου.</string>
+    <string name="signup" translatable="false">Δεν έχετε λογαριασμό;\nΚάντε εγγραφή.</string>
+    <string name="go2login" translatable="false">Έχετε ήδη λογαριασμό;\nΣυνδεθείτε.</string>
     <string name="QRresult" translatable="false">Στοιχεία φοιτητή:</string>
-    <string name="title_activity_student_signup">StudentSignup</string>
+    <string name="title_activity_student_signup" translatable="false">StudentSignup</string>
+    <string name="update_check" translatable="false">Είστε σίγουροι ότι θέλετε να αλλάξετε αυτά τα στοιχεία;</string>
+    <string name="update_success" translatable="false">Οι αλλαγές έγιναν επιτυχώς</string>
+    <string name="update" translatable="false">Αλλαγή</string>
+    <string name="okay" translatable="false">OK</string>
+    <string name="cancel" translatable="false">Άκυρο</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_q_r_result_">QR_result_Activity</string>
+    <string name="title_activity_q_r_result_" translatable="false">QR_result_Activity</string>
 </resources>

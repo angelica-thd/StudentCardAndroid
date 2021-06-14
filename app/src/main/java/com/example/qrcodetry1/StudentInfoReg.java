@@ -1,18 +1,19 @@
 package com.example.qrcodetry1;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.io.IOException;
 
@@ -20,19 +21,26 @@ public class StudentInfoReg extends AppCompatActivity {
     private StudentAdminRequest studentAdminRequest;
     private WebView webView;
     private String htmlSource,auth_token;
-
-    private String weburl,userAgent,photocookie;
+    private int pressed, count;
+    private String weburl,userAgent;
+    private ProgressBar progressBar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_info_reg);
-        Context activity = this;
         studentAdminRequest = new StudentAdminRequest(this);
         WebView webView = findViewById(R.id.webView2);
-
+        progressBar = findViewById(R.id.progress_view);
+        progressBar.setVisibility(View.INVISIBLE);
+        webView.setVisibility(View.VISIBLE);
         auth_token = getIntent().getStringExtra("auth_token");
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("prev_user_auth_token",auth_token);
+
         userAgent = "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}";
         CookieManager.getInstance().removeAllCookies(null);
         CookieManager.getInstance().flush();
@@ -43,33 +51,20 @@ public class StudentInfoReg extends AppCompatActivity {
         webView.clearFormData();
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setUserAgentString(userAgent);
-        webView.addJavascriptInterface(new StudentInfoReg.LoadListener(), "HTMLOUT");
+                webView.addJavascriptInterface(new StudentInfoReg.LoadListener(), "HTMLOUT");
 
         String eduURL = "https://submit-academicid.minedu.gov.gr";
-        //String eduURL = "https://wayf.grnet.gr/?entityID=https%3A%2F%2Fsubmit-paso.minedu.gov.gr%2Fshibboleth&return=https%3A%2F%2Fsubmit-academicid.minedu.gov.gr%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dss%253Amem%253Adc613920d8b66c5370bdfae91d09047dd2d9a14113691ae19739c63d79672a9b";
-        String dummyURL = "https://www.google.com";
-        String targetURL = "https://submit-academicid.minedu.gov.gr/Secure/Students/Default.aspx";
-        String dummyTarget = "https://https://www.w3schools.com/html/html_scripts.asp";
 
-
+        pressed = 0;
+        count = 0;
+        webView.scrollTo((int) (1.5*webView.getWidth())+5, (int) (webView.getHeight()/2.6));
         webView.loadUrl(eduURL);      //replace occasionally with dummyURL to avoid too many pings on the edu URL
-        Log.i("scroll", String.valueOf(webView.getScrollX())+ " " + String.valueOf(webView.getScrollY()));
-
-        /* if url is google, the html page is stored in this .txt file
-        HtmlReader reader = new HtmlReader();
-        String htmlFile = reader.readFromFile(activity);
-        try {
-            reader.readHTML(htmlFile,activity);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } */
 
     }
 
 
 
     private class MyWebViewClient extends WebViewClient {
-        String dummyURL = "https://www.google.com";
         String eduURL = "https://submit-academicid.minedu.gov.gr";
         String targetURL = "https://submit-academicid.minedu.gov.gr/Secure/Students/Default.aspx";
 
@@ -77,28 +72,37 @@ public class StudentInfoReg extends AppCompatActivity {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             weburl = url;
+            ConstraintLayout layout = findViewById(R.id.mainLayout);
             Log.i("webView_URL_activity", url);
-            if (eduURL.contains(url)) {
-                // This is my website, so do not override; let my WebView load the page
-                Toast.makeText(view.getContext(), "starting point", Toast.LENGTH_LONG).show();
-                view.scrollTo(view.getWidth(), view.getHeight());
-            } else if (targetURL.contains(url)) {
-                Toast.makeText(view.getContext(), "reached target", Toast.LENGTH_LONG).show();
+             if (targetURL.contains(url)) {
+                int progress =  Math.round(count/2);
+                if(progress<1){
+                    progressBar.setProgress(progress);
+                    layout.setAlpha((float) 0.8);
+                    progressBar.setVisibility(View.VISIBLE);
+                    progressBar.setAlpha(1);
+                }
+                else {
+                    layout.setAlpha(1);
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+
+                view.setVisibility(View.INVISIBLE);
                 view.setOnTouchListener((v, event) -> true);        //disable clicking on webview
             }
             return false;
         }
 
         public void onPageFinished(WebView view, String url) {
+            if (url.contains(eduURL)){
+                view.scrollTo((int) (1.5*view.getWidth())+5, (int) (view.getHeight()/2.6));
+                count+=1;
+            }
+
             if (url.contains(targetURL)) {
-                view.scrollTo(0, 2 * view.getHeight());
-                view.setDrawingCacheEnabled(true);
-                Bitmap bitmap = view.getDrawingCache();
-                new Intent(StudentInfoReg.this, MainStudent.class).putExtra("photo_id", bitmap);
-                //view.loadUrl("javascript:window.open(document.getElementById('ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto').getAttribute('src'))");
-
+                pressed+=1;
+                count+=1;
                 view.loadUrl("javascript:window.HTMLOUT.processHTML('<html>'+document.getElementsByTagName('html')[0].outerHTML+'</html>');");
-
             }
         }
     }
@@ -108,18 +112,8 @@ public class StudentInfoReg extends AppCompatActivity {
         @JavascriptInterface
         public void processHTML(String html) throws IOException {
             htmlSource = html;
-            //Log.i("result",html);
             HtmlReader reader = new HtmlReader();
-            reader.readHTML(html,auth_token,studentAdminRequest, StudentInfoReg.this);
-
-           /* if url is dummyURL write .txt file
-            try{
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(activity.openFileOutput("config.txt", Context.MODE_PRIVATE));
-                outputStreamWriter.write(html);
-                outputStreamWriter.close();
-            }catch (IOException e) {
-                Log.e("Exception", "File write failed: " + e.toString());
-            }*/
+            reader.readHTML(html,auth_token,StudentInfoReg.this,pressed);
 
         }
     }

@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/Scan"
-        android:icon="@drawable/ic_outline_qr_code_scanner_24"
-        android:title="@string/scan" />
+        android:id="@+id/Home"
+        android:icon="@drawable/ic_baseline_house_24"
+        android:title="@string/home" />
 
     <item
         android:id="@+id/Settings"

@@ -3,8 +3,11 @@ package com.example.qrcodetry1;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -24,7 +27,7 @@ import java.util.Map;
 
 public class StudentAdminRequest {
     private Context context;
-    private StringBuilder postUrl = new StringBuilder().append("https://3000-pink-dragon-w0hlrpcb.ws-eu08.gitpod.io/");
+
     private String photourl;
 
     public StudentAdminRequest(Context context) {
@@ -39,14 +42,13 @@ public class StudentAdminRequest {
         this.photourl = photourl;
     }
 
-    public String getPostURL(){ return  postUrl.toString(); }
 
     // POST /auth/login
     public void auth_login(JSONObject postData) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        if (!postUrl.toString().contains("auth/login")) postUrl = postUrl.append("auth/login");
+        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/auth/login";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                postUrl.toString(),
+                postUrl,
                 postData,
                 response -> {
                     Log.i("response", response.toString());
@@ -72,15 +74,52 @@ public class StudentAdminRequest {
         requestQueue.add(jsonObjectRequest);
     }
 
+    // PUT /update
+    public void update(JSONObject postData, String auth_token) {
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/update";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT,
+               postUrl,
+                postData,
+                response -> {
+                    Log.i("response", response.toString());
+                    try {
+                        if (response.getString("message").contains("successfully")){
+                            Toast.makeText(context,R.string.update_success,Toast.LENGTH_LONG).show();
+                            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
+                            SharedPreferences.Editor editor = preferences.edit();
+                            editor.putString("message", "success").apply();
+                    }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                errorListener){
+
+
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+            Map<String, String> headers = new HashMap<>();
+            headers.put("Authorization", auth_token);
+            return headers;
+        }
+        };
+
+        requestQueue.add(jsonObjectRequest);
+    }
+
+
     //GET /me
     public void me(String auth_token) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         SharedPreferences.Editor editor = preferences.edit();
         Log.i("me","here");
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        if (!postUrl.toString().contains("me")) postUrl = postUrl.append("me");
+        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/me";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
-                postUrl.toString(),
+                postUrl,
                 null,
                 response -> {
                     Log.i("me response", response.toString());
@@ -89,7 +128,9 @@ public class StudentAdminRequest {
                         if (jsonObject.has("username")) {
                             String username = jsonObject.getString("username");
                             String name = jsonObject.getString("name");
+                            String email = jsonObject.getString("email");
                             editor.putString("username", username).apply();
+                            editor.putString("email", email).apply();
                             editor.putString("name", name).apply();
 
                         }
@@ -122,14 +163,38 @@ public class StudentAdminRequest {
 
     //GET /auth/logout
     public void logout(String auth_token) {
-        StringBuilder postUrl = new StringBuilder().append("https://3000-pink-dragon-w0hlrpcb.ws-eu08.gitpod.io/");
+
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        if (!postUrl.toString().contains("auth/logout")) postUrl = postUrl.append("auth/logout");
-        Log.i("url",postUrl.toString());
+        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/auth/logout";
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
-                postUrl.toString(),
+                postUrl,
                 null,
                 response -> Log.i("logout response", response.toString()) ,
+                errorListener) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", auth_token);
+                return headers;
+            }
+        };
+
+        requestQueue.add(request);
+    }
+
+
+    //DELETE /delete
+    public void delete(String auth_token) {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/delete";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE,
+                postUrl,
+                null,
+                response -> Log.i("delete response", response.toString()) ,
                 errorListener) {
 
             @Override
@@ -152,10 +217,10 @@ public class StudentAdminRequest {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         SharedPreferences.Editor editor = preferences.edit();
-        if (!postUrl.toString().contains("signup")) postUrl = postUrl.append("signup");
-        Log.i("path",postUrl.toString());
+        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/signup";
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                postUrl.toString(),
+                postUrl,
                 postData,
                 response -> {
                     Log.i("response", response.toString());
@@ -175,7 +240,8 @@ public class StudentAdminRequest {
                             if(admin)
                                context.startActivity(new Intent(context,MainAdmin.class).putExtra("auth_token",auth_token));
                             else
-                                context.startActivity(new Intent(context, StudentInfoReg.class).putExtra("auth_token", auth_token));
+                               context.startActivity(new Intent(context,StudentInfoReg.class).putExtra("auth_token",auth_token));
+
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -190,10 +256,10 @@ public class StudentAdminRequest {
     public void signup_student(String auth_token, JSONObject postData) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
-        if (!postUrl.toString().contains("signup/student"))  postUrl = postUrl.append("signup/student");
+        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/signup/student";
         Log.i("postdata", postData.toString());
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                postUrl.toString(),
+              postUrl,
                 postData,
                 response -> {
                     Log.i("response", response.toString());
@@ -243,29 +309,87 @@ public class StudentAdminRequest {
                     }
 
                     if (error.networkResponse.statusCode == 404) {
-                        Toast.makeText(context, R.string.checkInternet, Toast.LENGTH_LONG).show();
+                       Toast toast = Toast.makeText(context, R.string.checkInternet, Toast.LENGTH_LONG);
+                        View view = toast.getView();
+                        view.setBackgroundResource(R.drawable.error_toast);
+                        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                        v.setTextColor(Color.RED);
+                        toast.show();
                     }
                     else if (error.networkResponse.statusCode == 401){
-                        Toast.makeText(context, R.string.invalid_creds, Toast.LENGTH_LONG).show();
+                        Toast toast = Toast.makeText(context, R.string.invalid_creds, Toast.LENGTH_LONG);
+                        View view = toast.getView();
+                        view.setBackgroundResource(R.drawable.error_toast);
+                        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                        v.setTextColor(Color.RED);
+                        toast.show();
                     }
                     if (error.networkResponse.statusCode == 422) {
                         if (errorMessage.contains("a user with this email or username already exists")) {
-                            Toast.makeText(context, R.string.useralreadyexists, Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, R.string.useralreadyexists, Toast.LENGTH_LONG);
+                            View view = toast.getView();
+                            view.setBackgroundResource(R.drawable.error_toast);
+                            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                            v.setTextColor(Color.RED);
+                            toast.show();
                         }
                         else if (errorMessage.contains("a student with this student number already exists")) {
-                            Toast.makeText(context, R.string.stalreadyexists, Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, R.string.stalreadyexists, Toast.LENGTH_LONG);
+                            View view = toast.getView();
+                            view.setBackgroundResource(R.drawable.error_toast);
+                            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                            v.setTextColor(Color.RED);
+                            toast.show();
+                            context.startActivity(new Intent(context, Register.class).putExtra("delete","delete"));
                         }else if (errorMessage.contains("Student was not found")) {
-                            Toast.makeText(context, R.string.norsult, Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, R.string.norsult, Toast.LENGTH_LONG);
+                            View view = toast.getView();
+                            view.setBackgroundResource(R.drawable.error_toast);
+                            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                            v.setTextColor(Color.RED);
+                            toast.show();
                         } else if (errorMessage.contains("Missing token")) {
-                            Toast.makeText(context, R.string.authorization, Toast.LENGTH_LONG).show();
+                            Toast toast = Toast.makeText(context, R.string.authorization, Toast.LENGTH_LONG);
+                            View view = toast.getView();
+                            view.setBackgroundResource(R.drawable.error_toast);
+                            TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                            v.setTextColor(Color.RED);
+                            toast.show();
                         } else if (errorMessage.contains("Validation failed")) {
-                            if (errorMessage.contains("Email is invalid"))
-                                Toast.makeText(context, R.string.invalidEmail, Toast.LENGTH_LONG).show();
+                            if (errorMessage.contains("Email is invalid")) {
+                                Toast toast = Toast.makeText(context, R.string.invalidEmail, Toast.LENGTH_LONG);
+                                //noinspection deprecation
+                                View view = toast.getView();
+                                view.setBackgroundResource(R.drawable.error_toast);
+                                TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                                v.setTextColor(Color.RED);
+                                toast.show();
+                            }
+                            else if (errorMessage.contains("Password is invalid")) {
+                                Toast toast = Toast.makeText(context, R.string.securePass, Toast.LENGTH_LONG);
+                                toast.getView().setBackgroundResource(R.drawable.error_toast);
+                                TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                                v.setTextColor(Color.RED);
+                                toast.show();
 
-                            else if (errorMessage.contains("Password confirmation doesn't match Password"))
-                                Toast.makeText(context, R.string.invalid_pass, Toast.LENGTH_LONG).show();
+                            }
+                            else if (errorMessage.contains("Password confirmation doesn't match Password")){
+                                Toast toast = Toast.makeText(context, R.string.invalid_pass, Toast.LENGTH_LONG);
+                                View view = toast.getView();
+                                view.setBackgroundResource(R.drawable.error_toast);
+                                TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                                v.setTextColor(Color.RED);
+                                toast.show();
+                            }
+                            else{
+                                Toast toast =  Toast.makeText(context, R.string.validationfail, Toast.LENGTH_LONG);
+                                View view = toast.getView();
+                                view.setBackgroundResource(R.drawable.error_toast);
+                                TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+                                v.setTextColor(Color.RED);
+                                toast.show();
+                            }
 
-                            Toast.makeText(context, R.string.validationfail, Toast.LENGTH_LONG).show();
                         }
                     }
                     if (error.networkResponse.statusCode == 500){

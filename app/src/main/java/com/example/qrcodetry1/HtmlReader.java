@@ -18,6 +18,7 @@ import org.jsoup.nodes.Document;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,8 +56,9 @@ public class HtmlReader {
         return ret;
     }
 
-    public void readHTML(String url,String auth_token, StudentAdminRequest request, Context context) throws  IOException{
+    public void readHTML(String url, String auth_token, Context context, int pressed) throws  IOException{
        // Log.i("url",url);
+        StudentAdminRequest request = new StudentAdminRequest(context);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -99,47 +101,47 @@ public class HtmlReader {
                 Log.i("student", student_info.toString());
                 request.setPhotourl(doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto").attr("src"));
                 try {
-                    String base64_img = downloadPhoto(context, student_info.getString("photo"));
+                    String base64_img = downloadPhoto(context, student_info.getString("photo"),pressed);
                     student_info.remove("photo");
                     student_info.put("photo", base64_img);
-                } catch (JSONException e) {
+                } catch (JSONException | FileNotFoundException e) {
                     e.printStackTrace();
                 }
                 request.signup_student(auth_token,student_info);
             }
         }).start();
-
     }
 
 
-    private String downloadPhoto(Context context,String downloadUrlOfImage){
+    private String downloadPhoto(Context context,String downloadUrlOfImage,int pressed) throws FileNotFoundException {
         String encodedImage = null;
         Log.i("download","here");
         try {
-            String cookie =  CookieManager.getInstance().getCookie(downloadUrlOfImage);
-            DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-            Uri downloadUri = Uri.parse(downloadUrlOfImage);
-            DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+            if (pressed == 1) {
+                String cookie = CookieManager.getInstance().getCookie(downloadUrlOfImage);
+                DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+                Uri downloadUri = Uri.parse(downloadUrlOfImage);
+                DownloadManager.Request request = new DownloadManager.Request(downloadUri);
 
-            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
-                    .setAllowedOverRoaming(false)
-                    .setTitle("photo_id")
-                    .addRequestHeader("Cookie",cookie)
-                    .addRequestHeader("User-Agent", "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}")
-                    .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
-                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
-            dm.enqueue(request);
-            Log.i("download","image downloaded");
+                request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+                        .setAllowedOverRoaming(false)
+                        .setTitle("photo_id")
+                        .addRequestHeader("Cookie", cookie)
+                        .addRequestHeader("User-Agent", "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}")
+                        .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
+                        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN)
+                        .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
+                dm.enqueue(request);
+                Log.i("download", "image downloaded");
+            }
         } catch (Exception ex) {
             Log.i("download","image not downloaded");
         }
 
-        String pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsolutePath();
-        File imgFile = new  File(pictures+"/photo_id.jpg");
+        File imgFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),"photo_id.jpg");
         Log.i("path",imgFile.getAbsolutePath());
         if(imgFile.exists()) {
-            Bitmap b = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(imgFile));
             Log.i("download","found photo");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             b.compress(Bitmap.CompressFormat.JPEG, 100, baos); // bm is the bitmap object
@@ -147,7 +149,7 @@ public class HtmlReader {
             encodedImage = Base64.encodeToString(byteArrayImage, Base64.DEFAULT);
             //Log.i("base64", encodedImage);
         }else{
-            downloadPhoto(context,downloadUrlOfImage);
+            downloadPhoto(context,downloadUrlOfImage,1);
            Log.i("download","not found photo");
         }
         return encodedImage;

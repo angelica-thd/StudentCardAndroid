@@ -53,11 +53,11 @@ public class MainAdmin extends AppCompatActivity {
         scan.setOnClickListener(v -> qr.scan_QR(scan.getContext()));
 
         BottomNavigationView bottomBar;
-        bottomBar = findViewById(R.id.bottombaradmin);
+        bottomBar = findViewById(R.id.navbar);
         bottomBar.getMenu().getItem(0).setChecked(true);
         bottomBar.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.Settings) {
-                startActivity(new Intent(getApplicationContext(), Settings.class));
+                startActivity(new Intent(getApplicationContext(), Settings.class).putExtra("user","admin").putExtra("auth_token",auth_token));
                 overridePendingTransition(0, 0);
                 return true;
             }
@@ -94,12 +94,9 @@ public class MainAdmin extends AppCompatActivity {
             JSONObject srtoken = new JSONObject().put("identifier", identifier);
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
-            StringBuilder postUrl = new StringBuilder().append(studentAdminRequest.getPostURL());
-
-            if (!postUrl.toString().contains("find/student"))
-                postUrl = postUrl.append("find/student");
+            String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/find/student";
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
-                    postUrl.toString(),
+                    postUrl,
                     srtoken,
                     response -> {
                         Log.i("response", response.toString());
@@ -143,5 +140,13 @@ public class MainAdmin extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        BottomNavigationView bottomBar;
+        bottomBar = findViewById(R.id.navbar);
+        bottomBar.getMenu().getItem(0).setChecked(true);
     }
 }

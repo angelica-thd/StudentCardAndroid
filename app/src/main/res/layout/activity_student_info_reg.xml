@@ -8,6 +8,7 @@
     android:background="@drawable/rectangled_back"
     android:gravity="center"
     android:orientation="vertical"
+    android:id="@+id/mainLayout"
     tools:context=".StudentInfoReg">
 
 
@@ -21,7 +22,7 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/webView"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,8 +50,25 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="600dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+
+        <ProgressBar
+            android:id="@+id/progress_view"
+            style="@android:style/Widget.Holo.Light.ProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:progressTint="@color/appblue"
+            app:layout_constraintBottom_toBottomOf="@+id/webView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/webView2" />
 
         <WebView
             android:id="@+id/webView2"
@@ -58,6 +76,7 @@
             android:layout_height="match_parent">
 
         </WebView>
+
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

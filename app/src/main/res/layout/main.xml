@@ -17,7 +17,7 @@
         android:alpha="0.4"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uni_logo"
         app:srcCompat="@drawable/rectangled"
@@ -41,7 +41,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
-        android:text="@string/app_name"
+        android:text= "@string/app_name2"
         android:textColor="@color/white"
         android:textSize="24dp"
         android:textStyle="bold"
@@ -149,10 +149,10 @@
         android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="@id/bottombar"
         app:layout_constraintEnd_toStartOf="@id/identifier"
-        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="@id/back"
         app:layout_constraintTop_toBottomOf="@id/cred"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.255">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/relativeLayout"
@@ -384,7 +384,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottombar_student" />
+        app:menu="@menu/bottombar_menu" />
 
     <TextView
         android:id="@+id/cred"

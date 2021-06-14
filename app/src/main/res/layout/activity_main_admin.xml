@@ -12,19 +12,15 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="850dp"
+        android:layout_gravity="bottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottombaradmin"
+        app:layout_constraintBottom_toTopOf="@id/navbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-
-
-
-
 
             <ImageView
                 android:id="@+id/back"
@@ -65,6 +61,7 @@
                 android:inputType="textPersonName"
                 android:textColor="#3C3C3C"
                 android:textColorLink="@color/contrast"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/back"
                 app:layout_constraintEnd_toEndOf="@+id/back"
                 app:layout_constraintStart_toStartOf="@+id/back"
@@ -91,9 +88,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/app_name"
+                android:text="@string/app_name2"
                 android:textColor="@color/white"
                 android:textSize="24dp"
                 android:textStyle="bold"
@@ -106,10 +103,11 @@
 
             <TextView
                 android:id="@+id/user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="20dp"
+                android:layout_width="250dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
                 android:text="User type"
                 android:textColor="#3C3C3C"
                 android:textSize="20sp"
@@ -153,22 +151,22 @@
     </ScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottombaradmin"
+        android:id="@+id/navbar"
         android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_height="40dp"
         android:layout_gravity="bottom"
         android:layout_margin="0dp"
         android:layout_marginBottom="0dp"
         android:background="@drawable/bottombar"
         app:elevation="2dp"
-        app:itemIconSize="35dp"
+        app:itemIconSize="25dp"
         app:itemIconTint="@drawable/items_selector"
         app:itemRippleColor="@android:color/transparent"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottombar_admin" />
+        app:menu="@menu/bottombar_menu" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@ public class WelcomeActivity extends AppCompatActivity {
         constraintLayout.setBackgroundColor(Color.BLACK);
         imageView=findViewById(R.id.welcome_img);
         logo=findViewById(R.id.logoimg);
+
         imageView.setImageResource(R.drawable.logobackground);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window w = getWindow();
