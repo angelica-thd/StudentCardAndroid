@@ -48,7 +48,7 @@
     <string name="validationfail" translatable="false">Παρακαλώ, ελέγξτε ότι έχετε συμπληρώσει όλα τα πεδία πρώτα.</string>
     <string name="invalidEmail" translatable="false">Παρακαλώ, εισάγετε ένα σωστό email.</string>
     <string name="securePass" translatable="false">Παρακαλώ, εισάγετε έναν πιο ασφαλή κωδικό.</string>
-    <string name="pass_req" translatable="false">Ο κωδικός πρόσβασης  πρέπει να έχει τουλάχιστον 8 χαρακτήρες, 1 κεφαλαίο γράμμα και 1 μικρό.</string>
+    <string name="pass_req" translatable="false">Ο κωδικός πρόσβασης  πρέπει να έχει τουλάχιστον 8 χαρακτήρες, 1 κεφαλαίο γράμμα, 1 μικρό και 1 νούμερο.</string>
     <string name="useralreadyexists" translatable="false">Αυτό το email ή/και το username χρησιμοποιούνται ήδη. \nΠαρακαλώ, χρησιμοποιείστε διαφορετικά.</string>
     <string name="stalreadyexists" translatable="false">Υπάρχει ήδη λογαριασμός φοιτητή με αυτά τα στοιχεία.</string>
     <string name="email" translatable="false">E-mail</string>

@@ -14,6 +14,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -55,6 +57,23 @@ public class HtmlReader {
 
         return ret;
     }
+    public void bachelorButton(String url){
+        Log.i("url",url);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.i("url","here");
+                Document doc = Jsoup.parse(url);
+                Elements buttons = doc.getElementsByAttributeValue("href","Shib/Default.aspx");
+                Log.i("student", buttons.toString());
+                Element bachelor_button = buttons.get(1);
+
+                Log.i("student", bachelor_button.toString());
+                String bachelor_button_href = bachelor_button.attr("href");
+                Log.i("student", bachelor_button_href);
+            }}).start();
+
+    }
 
     public void readHTML(String url, String auth_token, Context context, int pressed) throws  IOException{
        // Log.i("url",url);
@@ -63,12 +82,6 @@ public class HtmlReader {
             @Override
             public void run() {
                 Document doc = Jsoup.parse(url);
-
-
-                //build json object instead
-                //put try catch on every field to prevent failure
-                //try changing id
-
                 JSONObject student_info = new JSONObject();
                 try {
                     student_info.put("greekFname",  doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_lblGreekFirstName").text());
@@ -95,8 +108,6 @@ public class HtmlReader {
                         JSONException e) {
                     e.printStackTrace();
                 }
-
-
 
                 Log.i("student", student_info.toString());
                 request.setPhotourl(doc.getElementById("ctl00_ctl00_cphMain_cphSecureMain_ucDeliveredToStudentApplication_dxStudentApplicationPreview_ucApplicationView_imgPhoto").attr("src"));
