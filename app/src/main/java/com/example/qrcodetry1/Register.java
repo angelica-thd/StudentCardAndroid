@@ -28,6 +28,7 @@ public class Register extends AppCompatActivity {
     private int pressed;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,7 +98,6 @@ public class Register extends AppCompatActivity {
 
 
     }
-
     @Override
     protected void onResume() {
         super.onResume();

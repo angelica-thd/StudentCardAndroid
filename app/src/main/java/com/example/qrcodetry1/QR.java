@@ -7,10 +7,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
@@ -56,7 +56,8 @@ public class QR {
         if (ContextCompat.checkSelfPermission(context.getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             boolean save = new QRGSaver().save(path, "QRcode", bitmap, QRGContents.ImageType.IMAGE_JPEG);
             String result = save ? "QR saved" : "QR  not saved";
-            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+            //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+            Log.i("qrsave",result);
 
         } else {
             ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);

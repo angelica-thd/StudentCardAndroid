@@ -128,20 +128,20 @@ public class HtmlReader {
         String encodedImage = null;
         Log.i("download","here");
         try {
-            if (pressed == 1) {
-                String cookie = CookieManager.getInstance().getCookie(downloadUrlOfImage);
-                DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
-                Uri downloadUri = Uri.parse(downloadUrlOfImage);
-                DownloadManager.Request request = new DownloadManager.Request(downloadUri);
+            String cookie = CookieManager.getInstance().getCookie(downloadUrlOfImage);
+            DownloadManager dm = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+            Uri downloadUri = Uri.parse(downloadUrlOfImage);
+            DownloadManager.Request request = new DownloadManager.Request(downloadUri);
 
-                request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
-                        .setAllowedOverRoaming(false)
-                        .setTitle("photo_id")
-                        .addRequestHeader("Cookie", cookie)
-                        .addRequestHeader("User-Agent", "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}")
-                        .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
-                        .setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN)
-                        .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
+                    .setAllowedOverRoaming(false)
+                    .setTitle("photo_id")
+                    .addRequestHeader("Cookie", cookie)
+                    .addRequestHeader("User-Agent", "{'User-Agent':\"Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.27 Safari/537.17\"}")
+                    .setMimeType("image/jpeg") // Your file type. You can use this code to download other file types also.
+                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_HIDDEN)
+                    .setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, File.separator + "photo_id.jpg");
+            if (pressed == 1) {
                 dm.enqueue(request);
                 Log.i("download", "image downloaded");
             }

@@ -102,13 +102,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_password_24"
+                android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
                 android:ems="10"
-                android:textColor="#3C3C3C"
                 android:inputType="textPassword"
+                android:textColor="#3C3C3C"
                 app:layout_constraintEnd_toEndOf="@id/back"
                 app:layout_constraintHorizontal_bias="0.511"
                 app:layout_constraintStart_toStartOf="@id/back"
                 app:layout_constraintTop_toBottomOf="@+id/email_st" />
+
 
             <EditText
                 android:id="@+id/pass_conf_st"
@@ -116,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:drawableLeft="@drawable/ic_baseline_password_24"
+                android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
                 android:ems="10"
                 android:inputType="textPassword"
                 android:textColor="#3C3C3C"

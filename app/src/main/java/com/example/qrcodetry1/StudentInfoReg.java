@@ -72,23 +72,32 @@ public class StudentInfoReg extends AppCompatActivity {
             weburl = url;
 
             Log.i("webView_URL_activity", url);
-            if (targetURL.contains(url) || url.contains("https://wayf.grnet.gr/?entityID=")) {
+            if (targetURL.contains(url)) {
                 int progress = Math.round(count / 2);
                 if (progress < 1) {
                     progressBar.setProgress(progress);
                     layout.setAlpha((float) 0.8);
                     progressBar.setVisibility(View.VISIBLE);
                     progressBar.setAlpha(1);
-                } else {
-                    layout.setAlpha(1);
-                    progressBar.setVisibility(View.INVISIBLE);
-                }
+                } else if (url.contains("https://wayf.grnet.gr/?entityID=")) {
+                    int progress_2 = Math.round(count / 1);
+                    if (progress_2 < 1) {
+                        progressBar.setProgress(progress);
+                        layout.setAlpha((float) 0.8);
+                        progressBar.setVisibility(View.VISIBLE);
+                        progressBar.setAlpha(1);
+                    }
+                }else {
+                        layout.setAlpha(1);
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
 
-                view.setVisibility(View.INVISIBLE);
-               // view.setOnTouchListener((v, event) -> true);        //disable clicking on webview
+                    view.setVisibility(View.INVISIBLE);
+                    // view.setOnTouchListener((v, event) -> true);        //disable clicking on webview
+                }
+                return false;
             }
-            return false;
-        }
+        
 
         public void onPageFinished(WebView view, String url) {
             if (url.contains(eduURL)) {
