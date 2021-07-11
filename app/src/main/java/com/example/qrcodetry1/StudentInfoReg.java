@@ -93,7 +93,6 @@ public class StudentInfoReg extends AppCompatActivity {
                     }
 
                     view.setVisibility(View.INVISIBLE);
-                    // view.setOnTouchListener((v, event) -> true);        //disable clicking on webview
                 }
                 return false;
             }
@@ -102,7 +101,7 @@ public class StudentInfoReg extends AppCompatActivity {
         public void onPageFinished(WebView view, String url) {
             if (url.contains(eduURL)) {
                 count += 1;
-                view.loadUrl("javascript:(function(){bcs_btn = document.getElementsByClassName('squarebutton')[1].click();})();");
+                if(count == 1) view.loadUrl("javascript:(function(){bcs_btn = document.getElementsByClassName('squarebutton')[1].click();})();");
 
             }
             if (url.contains("https://wayf.grnet.gr/?entityID="))  view.setVisibility(View.VISIBLE);

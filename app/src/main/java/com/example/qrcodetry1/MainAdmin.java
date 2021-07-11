@@ -94,9 +94,9 @@ public class MainAdmin extends AppCompatActivity {
             JSONObject srtoken = new JSONObject().put("identifier", identifier);
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
-            String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/find/student";
+            StringBuilder postUrl = new StringBuilder().append(studentAdminRequest.getServer_url()).append("find/student");
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
-                    postUrl,
+                    postUrl.toString(),
                     srtoken,
                     response -> {
                         Log.i("response", response.toString());

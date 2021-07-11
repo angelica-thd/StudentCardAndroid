@@ -28,10 +28,10 @@ import java.util.Map;
 public class StudentAdminRequest {
     private Context context;
 
-    private String photourl;
+    private String server_url = "https://3000-pink-dragon-w0hlrpcb.ws-eu11.gitpod.io/";
 
-    public StudentAdminRequest(Context context) {
-        this.context = context;
+    public String getServer_url() {
+        return server_url;
     }
 
     public String getPhotourl() {
@@ -42,13 +42,19 @@ public class StudentAdminRequest {
         this.photourl = photourl;
     }
 
+    private String photourl;
+
+    public StudentAdminRequest(Context context) {
+        this.context = context;
+    }
+
 
     // POST /auth/login
     public void auth_login(JSONObject postData) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/auth/login";
+        StringBuilder postUrl = new StringBuilder().append(server_url).append("auth/login");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                postUrl,
+                postUrl.toString(),
                 postData,
                 response -> {
                     Log.i("response", response.toString());
@@ -77,9 +83,9 @@ public class StudentAdminRequest {
     // PUT /update
     public void update(JSONObject postData, String auth_token) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/update";
+        StringBuilder postUrl = new StringBuilder().append(server_url).append("update");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT,
-               postUrl,
+               postUrl.toString(),
                 postData,
                 response -> {
                     Log.i("response", response.toString());
@@ -115,14 +121,13 @@ public class StudentAdminRequest {
     public void me(String auth_token) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         SharedPreferences.Editor editor = preferences.edit();
-        Log.i("me","here");
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/me";
+        StringBuilder postUrl = new StringBuilder().append(server_url).append("me");
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
-                postUrl,
+                postUrl.toString(),
                 null,
                 response -> {
-                    Log.i("me response", response.toString());
+                    Log.i("response", response.toString());
                     try {
                         JSONObject jsonObject = response.getJSONObject("credentials");
                         if (jsonObject.has("username")) {
@@ -165,10 +170,10 @@ public class StudentAdminRequest {
     public void logout(String auth_token) {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/auth/logout";
+        StringBuilder postUrl = new StringBuilder().append(server_url).append("auth/logout");
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET,
-                postUrl,
+                postUrl.toString(),
                 null,
                 response -> Log.i("logout response", response.toString()) ,
                 errorListener) {
@@ -189,10 +194,10 @@ public class StudentAdminRequest {
     public void delete(String auth_token) {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
-        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/delete";
+        StringBuilder postUrl = new StringBuilder().append(server_url).append("delete");
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.DELETE,
-                postUrl,
+                postUrl.toString(),
                 null,
                 response -> Log.i("delete response", response.toString()) ,
                 errorListener) {
@@ -213,14 +218,12 @@ public class StudentAdminRequest {
 
     //POST /signup
     public void signup_user(JSONObject postData, Boolean admin) {
-
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context.getApplicationContext());
         SharedPreferences.Editor editor = preferences.edit();
-        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/signup";
-
+        StringBuilder postUrl = new StringBuilder().append(server_url).append("signup");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-                postUrl,
+                postUrl.toString(),
                 postData,
                 response -> {
                     Log.i("response", response.toString());
@@ -256,10 +259,9 @@ public class StudentAdminRequest {
     public void signup_student(String auth_token, JSONObject postData) {
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
-        String postUrl ="https://3000-pink-dragon-w0hlrpcb.ws-eu09.gitpod.io/signup/student";
-        Log.i("postdata", postData.toString());
+        StringBuilder postUrl = new StringBuilder().append(server_url).append("signup/student");
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
-              postUrl,
+              postUrl.toString(),
                 postData,
                 response -> {
                     Log.i("response", response.toString());

@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
@@ -60,9 +59,7 @@ public class Settings extends AppCompatActivity {
         bottomBar.getMenu().getItem(1).setChecked(true);
         bottomBar.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.Home) {
-                startActivity(new Intent(getApplicationContext(), MainAdmin.class));
-                overridePendingTransition(0, 0);
-                return true;
+                super.onBackPressed();
             }
             if (item.getItemId() == R.id.Logout) {
                 startActivity(new Intent(getApplicationContext(), Login_or_Reg.class));
@@ -74,11 +71,9 @@ public class Settings extends AppCompatActivity {
         });
 
         fab.setOnClickListener(v -> {
-            Log.i("fab","fab");
             AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
             builder.setMessage(R.string.update_check)
                     .setPositiveButton(R.string.update, (dialog, id) -> {
-                        Log.i("click","click");
                         JSONObject postData = new JSONObject();
                         try{
                             if(!email_txt.getText().toString().equals("")|| !email_txt.getText().toString().equals(null))

@@ -14,6 +14,10 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 public class WelcomeActivity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     ImageView imageView,logo;
@@ -25,6 +29,8 @@ public class WelcomeActivity extends AppCompatActivity {
         constraintLayout.setBackgroundColor(Color.BLACK);
         imageView=findViewById(R.id.welcome_img);
         logo=findViewById(R.id.logoimg);
+        AppCenter.start(getApplication(), "b34a3cf4-2f56-4600-afa4-e2ddb2e74e2b",
+                Analytics.class, Crashes.class);
 
         imageView.setImageResource(R.drawable.logobackground);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -74,27 +80,6 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
     }
-
-   /* @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            hideSystemUI();
-        }
-    }
-
-    private void hideSystemUI() {
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-    }*/
-
 
     public void to_main_activity(View view){
         Intent ma = new Intent(this, Login_or_Reg.class);

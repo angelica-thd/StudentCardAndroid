@@ -56,7 +56,6 @@ public class QR {
         if (ContextCompat.checkSelfPermission(context.getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             boolean save = new QRGSaver().save(path, "QRcode", bitmap, QRGContents.ImageType.IMAGE_JPEG);
             String result = save ? "QR saved" : "QR  not saved";
-            //Toast.makeText(context, result, Toast.LENGTH_LONG).show();
             Log.i("qrsave",result);
 
         } else {

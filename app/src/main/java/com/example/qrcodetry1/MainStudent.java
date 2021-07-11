@@ -1,10 +1,13 @@
 package com.example.qrcodetry1;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.util.Base64;
 import android.util.Log;
@@ -13,12 +16,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.zxing.WriterException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.File;
 
 public class MainStudent<photourl> extends AppCompatActivity {
     private TextView cred, info;
@@ -59,6 +66,18 @@ public class MainStudent<photourl> extends AppCompatActivity {
         auth_token = getIntent().getStringExtra("auth_token");
         userType = getIntent().getStringExtra("userType");
 
+        File imgFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),"photo_id.jpg");
+        Log.i("path",imgFile.getAbsolutePath());
+        if(imgFile.exists()) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                boolean delete = imgFile.delete();
+                String result = delete ? "img deleted" : "img  not deleted";
+
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 0);
+            }
+
+        }
 
 
         studentAdminRequest.me(auth_token);

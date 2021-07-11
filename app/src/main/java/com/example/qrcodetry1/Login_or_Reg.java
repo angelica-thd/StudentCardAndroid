@@ -33,6 +33,11 @@ public class Login_or_Reg extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finishAffinity();
+    }
 
     @SuppressLint("ResourceAsColor")
     public void loginClick(View view) throws JSONException {
