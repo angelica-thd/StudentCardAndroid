@@ -27,8 +27,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainAdmin extends AppCompatActivity {
-    private StudentAdminRequest studentAdminRequest;
+public class MainValidator extends AppCompatActivity {
+    private StudentAPIrequest StudentAPIrequest;
     private TextView adminType;
     private ImageButton scan;
     private QR qr;
@@ -41,13 +41,13 @@ public class MainAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_admin);
         Log.i("mainadmin", "admin");
-        studentAdminRequest = new StudentAdminRequest(this);
+        StudentAPIrequest = new StudentAPIrequest(this);
         adminType = findViewById(R.id.user);
         scan = findViewById(R.id.scanQR);
         qr = new QR();
         activity = getIntent().getStringExtra("activity");
         auth_token = getIntent().getStringExtra("auth_token");
-        adminType.setText("Έλεγχος ακαδημαϊκής ταυτότητας");
+        adminType.setText("Έλεγχος ακαδημαϊκής\nταυτότητας");
         studentNumber = findViewById(R.id.searchStudent2);
 
         scan.setOnClickListener(v -> qr.scan_QR(scan.getContext()));
@@ -63,7 +63,7 @@ public class MainAdmin extends AppCompatActivity {
             }
             if (item.getItemId() == R.id.Logout) {
                 startActivity(new Intent(getApplicationContext(), Login_or_Reg.class));
-                studentAdminRequest.logout(auth_token);
+                StudentAPIrequest.logout(auth_token);
                 overridePendingTransition(0, 0);
                 return true;
             }
@@ -94,7 +94,7 @@ public class MainAdmin extends AppCompatActivity {
             JSONObject srtoken = new JSONObject().put("identifier", identifier);
 
             RequestQueue requestQueue = Volley.newRequestQueue(this);
-            StringBuilder postUrl = new StringBuilder().append(studentAdminRequest.getServer_url()).append("find/student");
+            StringBuilder postUrl = new StringBuilder().append(StudentAPIrequest.getServer_url()).append("find/student");
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
                     postUrl.toString(),
                     srtoken,
@@ -121,13 +121,13 @@ public class MainAdmin extends AppCompatActivity {
                                             .putExtra("studentNumber", student.getString("studentNumber"))
                                             .putExtra("auth_token", auth_token));
                                 } else
-                                    Toast.makeText(MainAdmin.this, getString(R.string.norsult), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MainValidator.this, getString(R.string.norsult), Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     },
-                    studentAdminRequest.errorListener){
+                    StudentAPIrequest.errorListener){
 
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {

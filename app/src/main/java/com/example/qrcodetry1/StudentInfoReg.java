@@ -16,7 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import java.io.IOException;
 
 public class StudentInfoReg extends AppCompatActivity {
-    private StudentAdminRequest studentAdminRequest;
+    private StudentAPIrequest StudentAPIrequest;
     private WebView webView;
     private String htmlSource, auth_token;
     private int pressed, count;
@@ -29,7 +29,7 @@ public class StudentInfoReg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_info_reg);
-        studentAdminRequest = new StudentAdminRequest(this);
+        StudentAPIrequest = new StudentAPIrequest(this);
         WebView webView = findViewById(R.id.webView2);
         progressBar = findViewById(R.id.progress_view);
         progressBar.setVisibility(View.INVISIBLE);

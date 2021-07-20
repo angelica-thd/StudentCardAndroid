@@ -34,7 +34,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
     private ImageView identifier;
     private String userType, auth_token,photourl;
     private BottomNavigationView bottomBar;
-    private StudentAdminRequest studentAdminRequest;
+    private StudentAPIrequest StudentAPIrequest;
     private int pressed;
     private TextView address, academicAddress, entryDate, department,fullname, studentshipType, studentNumber, institution;
 
@@ -55,7 +55,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
         institution = findViewById(R.id.institution_txt);
 
 
-        studentAdminRequest = new StudentAdminRequest(this);
+        StudentAPIrequest = new StudentAPIrequest(this);
         cred = findViewById(R.id.cred);
         show_hide_QR = findViewById(R.id.showQR);
         pressed = 1;
@@ -80,7 +80,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
         }
 
 
-        studentAdminRequest.me(auth_token);
+        StudentAPIrequest.me(auth_token);
 
         if (userType.contains("Student")) {
             cred.setText("Φοιτητής");
@@ -148,7 +148,7 @@ public class MainStudent<photourl> extends AppCompatActivity {
             }
             if (item.getItemId() == R.id.Logout){
                 startActivity(new Intent(getApplicationContext(), Login_or_Reg.class));
-                studentAdminRequest.logout(auth_token);
+                StudentAPIrequest.logout(auth_token);
                 overridePendingTransition(0, 0);
                 return true;
             }

@@ -25,7 +25,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StudentAdminRequest {
+public class StudentAPIrequest {
     private Context context;
 
     private String server_url = "https://3000-pink-dragon-w0hlrpcb.ws-eu11.gitpod.io/";
@@ -44,7 +44,7 @@ public class StudentAdminRequest {
 
     private String photourl;
 
-    public StudentAdminRequest(Context context) {
+    public StudentAPIrequest(Context context) {
         this.context = context;
     }
 
@@ -60,7 +60,7 @@ public class StudentAdminRequest {
                     Log.i("response", response.toString());
                     try {
                         if (response.getString("message").contains("Basic"))
-                            context.startActivity(new Intent(context, MainAdmin.class).
+                            context.startActivity(new Intent(context, MainValidator.class).
                                     putExtra("activity","login").
                                     putExtra("auth_token", response.getString("auth_token")).
                                     putExtra("email", response.getString("user")).
@@ -241,7 +241,7 @@ public class StudentAdminRequest {
                             editor.apply();
 
                             if(admin)
-                               context.startActivity(new Intent(context,MainAdmin.class).putExtra("auth_token",auth_token));
+                               context.startActivity(new Intent(context, MainValidator.class).putExtra("auth_token",auth_token));
                             else
                                context.startActivity(new Intent(context,StudentInfoReg.class).putExtra("auth_token",auth_token));
 

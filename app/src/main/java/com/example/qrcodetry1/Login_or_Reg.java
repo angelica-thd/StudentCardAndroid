@@ -17,13 +17,13 @@ import org.json.JSONObject;
 
 public class Login_or_Reg extends AppCompatActivity {
     private EditText pass, email;
-    private StudentAdminRequest studentAdminRequest;
+    private StudentAPIrequest StudentAPIrequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_or_reg);
-        studentAdminRequest = new StudentAdminRequest(this);
+        StudentAPIrequest = new StudentAPIrequest(this);
 
         pass = findViewById(R.id.password);
         email = findViewById(R.id.email_logreg);
@@ -48,7 +48,7 @@ public class Login_or_Reg extends AppCompatActivity {
             JSONObject log_params = new JSONObject();
             log_params.put("email",email.getText().toString());
             log_params.put("password",pass.getText().toString());
-            studentAdminRequest.auth_login(log_params);
+            StudentAPIrequest.auth_login(log_params);
         }else {
             Toast toast = Toast.makeText(this, R.string.blankField, Toast.LENGTH_SHORT);
             View v = toast.getView();

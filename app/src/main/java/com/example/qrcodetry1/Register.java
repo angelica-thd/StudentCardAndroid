@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 public class Register extends AppCompatActivity {
     FloatingActionButton fab;
     EditText email,username,name,pass,pass_conf;
-    private StudentAdminRequest studentAdminRequest;
+    private StudentAPIrequest StudentAPIrequest;
     private boolean isAdmin;
     private int pressed;
 
@@ -35,7 +35,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.register_user);
         findViewById(R.id.pass_req).setVisibility(View.INVISIBLE);
         pressed = 0;
-        studentAdminRequest = new StudentAdminRequest(this);
+        StudentAPIrequest = new StudentAPIrequest(this);
         email =  findViewById(R.id.email_st);
         username =  findViewById(R.id.username_st);
         name =  findViewById(R.id.fname_st);
@@ -75,7 +75,7 @@ public class Register extends AppCompatActivity {
                             JSONException e) {
                         e.printStackTrace();
                     }
-                    studentAdminRequest.signup_user(postData, isAdmin);
+                    StudentAPIrequest.signup_user(postData, isAdmin);
 
                 }else {
                     Toast toast = Toast.makeText(this, R.string.usertype, Toast.LENGTH_LONG);

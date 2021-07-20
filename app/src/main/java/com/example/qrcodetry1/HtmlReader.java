@@ -14,70 +14,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
 public class HtmlReader {
 
-    String readFromFile(Context context) {
 
-        String ret = "";
-
-        try {
-            InputStream inputStream = context.openFileInput("config.txt");
-
-            if ( inputStream != null ) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
-                    stringBuilder.append("\n").append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
-            }
-        }
-        catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
-
-        return ret;
-    }
-    public void bachelorButton(String url){
-        Log.i("url",url);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("url","here");
-                Document doc = Jsoup.parse(url);
-                Elements buttons = doc.getElementsByAttributeValue("href","Shib/Default.aspx");
-                Log.i("student", buttons.toString());
-                Element bachelor_button = buttons.get(1);
-
-                Log.i("student", bachelor_button.toString());
-                String bachelor_button_href = bachelor_button.attr("href");
-                Log.i("student", bachelor_button_href);
-            }}).start();
-
-    }
 
     public void readHTML(String url, String auth_token, Context context, int pressed) throws  IOException{
        // Log.i("url",url);
-        StudentAdminRequest request = new StudentAdminRequest(context);
+        StudentAPIrequest request = new StudentAPIrequest(context);
         new Thread(new Runnable() {
             @Override
             public void run() {

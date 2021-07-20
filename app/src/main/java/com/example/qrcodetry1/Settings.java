@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class Settings extends AppCompatActivity {
     private BottomNavigationView bottomBar;
     private String user,auth_token,name,username,email;
-    private StudentAdminRequest studentAdminRequest;
+    private StudentAPIrequest StudentAPIrequest;
     private FloatingActionButton fab;
     EditText email_txt,username_txt,name_txt,pass_txt,pass_conf_txt;
 
@@ -43,9 +43,9 @@ public class Settings extends AppCompatActivity {
 
         user = getIntent().getStringExtra("user");
         auth_token = getIntent().getStringExtra("auth_token");
-        studentAdminRequest = new StudentAdminRequest(this);
+        StudentAPIrequest = new StudentAPIrequest(this);
 
-        studentAdminRequest.me(auth_token);
+        StudentAPIrequest.me(auth_token);
 
         name = preferences.getString("name", "name");
         username = preferences.getString("username", "username");
@@ -63,7 +63,7 @@ public class Settings extends AppCompatActivity {
             }
             if (item.getItemId() == R.id.Logout) {
                 startActivity(new Intent(getApplicationContext(), Login_or_Reg.class));
-                studentAdminRequest.logout(auth_token);
+                StudentAPIrequest.logout(auth_token);
                 overridePendingTransition(0, 0);
                 return true;
             }
@@ -98,7 +98,7 @@ public class Settings extends AppCompatActivity {
                                 toast.show();
                             }
 
-                            studentAdminRequest.update(postData, auth_token);
+                            StudentAPIrequest.update(postData, auth_token);
                         }catch (JSONException e){
                             e.printStackTrace();
                         }

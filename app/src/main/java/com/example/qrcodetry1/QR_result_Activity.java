@@ -49,6 +49,6 @@ public class QR_result_Activity extends AppCompatActivity {
     }
 
     public void goBack(View view){
-        startActivity(new Intent(this, MainAdmin.class).putExtra("auth_token", auth_token));
+        startActivity(new Intent(this, MainValidator.class).putExtra("auth_token", auth_token));
     }
 }
